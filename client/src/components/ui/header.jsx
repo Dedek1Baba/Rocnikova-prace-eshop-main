@@ -14,7 +14,6 @@ export default function Header() {
         <div className='flex'>
         <Search className='absolute mt-2 ml-2'/>
         <Input type="text" placeholder="Search" className="max-w-64 pl-10" ></Input>
-        
         </div>
         </div>
       </div>
