@@ -5,16 +5,19 @@ import React from 'react'
 export default function Home() {
   return (
     <>
-    
-        <Link to={"/add-car"}>
+        
+  
+
+        <div className="min-h-screen"></div>
+    </>
+  )
+}
+/*
+<Link to={"/add-car"}>
             <p>Add car</p>
         </Link>
 
         <Link to={"/view-cars"}>
             <p>View car</p>
         </Link>
-
-        <div className="min-h-screen"></div>
-    </>
-  )
-}
+*/
