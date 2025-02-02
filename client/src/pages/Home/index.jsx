@@ -8,12 +8,13 @@ export default function Home() {
     
         <Link to={"/add-car"}>
             <p>Add car</p>
-            <Button variant="outline">Button</Button>
         </Link>
 
         <Link to={"/view-cars"}>
             <p>View car</p>
         </Link>
+
+        <div className="min-h-screen"></div>
     </>
   )
 }
