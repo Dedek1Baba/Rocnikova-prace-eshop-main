@@ -27,21 +27,21 @@ const Menu = [
 export default function Header() {
   return (
     <>
-      <div className="bg-primary/10 shadow-xl shadow-gray-500/80 ">
+      <div className="bg-primary/10 shadow-xl shadow-gray-500/80">
         <div className="container flex justify-between py-5  mx-auto items-center">
           <div className="flex">
             <Search className="absolute mt-2 ml-36 w-8 transition-all  hover:text-secondary rounded-full" />
             <Input
               type="text"
               placeholder="Search.."
-              className="px-2 py-1 group-hover:w-[200px] transition-all duration-300 rounded-full border border-gray-600  focus-visible:ring-0 focus:outline-none focus:border-1 focus:border-primary"
+              className="px-2 py-1 group-hover:w-[200px] transition-all duration-300 rounded-full border border-gray-600  focus-visible:ring-0 focus:outline-none cursor-text focus:border-1 focus:border-primary"
             ></Input>
           </div>
 
           <img
             src={Logo}
             alt="logo"
-            className="h-14 absolute left-1/2 transform -translate-x-1/2"
+            className="h-16 absolute  left-1/2 transform -translate-x-1/2"
           />
 
           <div className="flex">
