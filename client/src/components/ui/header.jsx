@@ -145,12 +145,12 @@ export default function Header() {
             ))}
           </ul>
 
-              <div className="flex justify-center gap-4 mt-4 cursor-pointer">
+              <div className=" flex justify-center gap-4 mt-4 cursor-pointer">
             <Button className=" bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary  duration-200 text-white rounded-full items-center">
               <ShoppingCart className="" />
             </Button>
 
-            <Button className=" bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary  duration-200 text-white rounded-full items-center">
+            <Button className="-ml-2 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary  duration-200 text-white rounded-full items-center">
               <User className="" />
             </Button>
             </div>
