@@ -1,8 +1,16 @@
 import React from "react";
-import { useState,  } from "react";
+import { useState } from "react";
 import { Input } from "./input";
 import { Button } from "./button";
-import { Search, X, ShoppingCart,User,Menu } from "lucide-react";
+import {
+  Search,
+  X,
+  ShoppingCart,
+  User,
+  Menu,
+  Settings,
+  LogOut,
+} from "lucide-react";
 import Logo from "../../assets/snith.logo.png";
 import classNames from "classnames";
 
@@ -25,16 +33,20 @@ const MenuPages = [
 ];
 
 export default function Header() {
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   return (
     <>
-      <div className="bg-primary/10 shadow-xl shadow-gray-500/80">
+      <div
+        className="bg-primary/10 shadow-xl shadow-gray-500/80 relative"
+        style={{
+          zIndex: 2,
+        }}
+      >
         <div className="container flex justify-between py-5  mx-auto items-center px-4 ">
           <div className="relative flex items-center gap-2">
-          <Search className="absolute right-3 text-primary md:w-6 w-5" />
+            <Search className="absolute right-3 text-primary md:w-6 w-5" />
             <Input
               type="text"
               placeholder="Search.."
@@ -45,7 +57,7 @@ export default function Header() {
               focus-visible:ring-0
               focus-visible:outline-primary
               focus:border-transparent cursor-text"
-            ></Input> 
+            ></Input>
           </div>
 
           <img
@@ -54,8 +66,8 @@ export default function Header() {
             className="h-16  absolute  left-1/2 transform -translate-x-14"
           />
 
-          <div className="hidden md:flex items-center gap-6">
-            <ul className="sm:flex hidden items-center gap-4">
+          <div className="hidden lg:flex items-center gap-6">
+            <ul className="lg:flex hidden items-center xl:gap-4 gap-0">
               {MenuPages.map((data) => (
                 <li key={data.id} className="relative group">
                   <a
@@ -69,13 +81,9 @@ export default function Header() {
               ))}
             </ul>
 
-           
-
             <Button className="ml-1 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary  duration-200 text-white rounded-full items-center">
               <ShoppingCart className="" />
             </Button>
-
-
 
             <div className="relative">
               <Button
@@ -88,26 +96,29 @@ export default function Header() {
 
               {userMenuOpen && (
                 <div
-                  className="absolute right-0 mt-2 w-40 bg-white shadow-lg border rounded-lg py-2"
+                  className="absolute right-0 mt-2 w-40 bg-white shadow-lg border rounded-lg "
                   onMouseEnter={() => setUserMenuOpen(true)}
                   onMouseLeave={() => setUserMenuOpen(false)}
                 >
                   <a
                     href="/profile"
-                    className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   >
+                    <User className="w-5 h-5 text-gray-600" />
                     Profil
                   </a>
                   <a
                     href="/settings"
-                    className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   >
+                    <Settings className="w-5 h-5 text-gray-600" />
                     Nastavení
                   </a>
                   <a
                     href="/logout"
-                    className="block px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500"
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500"
                   >
+                    <LogOut className="w-5 h-5 text-red-500" />
                     Odhlásit se
                   </a>
                 </div>
@@ -115,29 +126,27 @@ export default function Header() {
             </div>
           </div>
 
-          <button className="md:hidden right-4 hover:text-secondary duration-200 text-primary" 
-            onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen && <X className="w-8 h-8"/>}
-              {!menuOpen && <Menu className="w-8 h-8"/>}
-            </button>
-            </div>
-            </div>
+          <button
+            className="lg:hidden right-4 hover:text-secondary duration-200 text-primary"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen && <X className="w-8 h-8" />}
+            {!menuOpen && <Menu className="w-8 h-8" />}
+          </button>
+        </div>
+      </div>
 
+      {/*Mobilni menu */}
 
-           
-            
-
-        
-
-
-            {/*Mobilni menu */}
-
-            {menuOpen && (
-        <div className="md:hidden bg-white border-t shadow-lg p-4 absolute w-full left-0">
+      {menuOpen && (
+        <div className="lg:hidden bg-white border-t shadow-lg p-4 absolute w-full left-0 z-10">
           <ul className="flex flex-col items-center gap-4">
             {MenuPages.map((data) => (
               <li key={data.id} className="relative group">
-                <a href={data.link} className="block py-2 text-lg hover:text-secondary cursor-pointer">
+                <a
+                  href={data.link}
+                  className="block py-2 text-lg hover:text-secondary cursor-pointer"
+                >
                   {data.name}
                 </a>
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
@@ -145,7 +154,7 @@ export default function Header() {
             ))}
           </ul>
 
-              <div className=" flex justify-center gap-4 mt-4 cursor-pointer">
+          <div className=" flex justify-center gap-4 mt-4 cursor-pointer">
             <Button className=" bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary  duration-200 text-white rounded-full items-center">
               <ShoppingCart className="" />
             </Button>
@@ -153,7 +162,7 @@ export default function Header() {
             <Button className="-ml-2 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary  duration-200 text-white rounded-full items-center">
               <User className="" />
             </Button>
-            </div>
+          </div>
         </div>
       )}
     </>
