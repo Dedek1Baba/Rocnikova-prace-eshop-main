@@ -5,6 +5,7 @@ import pinkHoodie from "../../assets/phoodie.png";
 import blackHoodie from "../../assets/bhoodie.png"; 
 import backgroundImage from "../../assets/background.png";
 
+
 export default function Mainpage() {
 
   const [selectedColor, setSelectedColor] = useState("gray");

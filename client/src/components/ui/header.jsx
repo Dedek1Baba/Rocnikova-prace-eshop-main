@@ -12,7 +12,7 @@ import {
   LogOut,
 } from "lucide-react";
 import Logo from "../../assets/snith.logo.png";
-import classNames from "classnames";
+
 
 const MenuPages = [
   {
