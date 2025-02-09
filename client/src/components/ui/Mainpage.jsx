@@ -90,6 +90,8 @@ export default function Mainpage() {
             >
               Vyrobeno z nejkvalitnějších materiálů, perfektní pro každodenní nošení.
             </motion.p>
+
+            <a href="#vice-info">
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -98,6 +100,7 @@ export default function Mainpage() {
             >
               Zjistit více
             </motion.button>
+            </a>
           </div>
 
 
