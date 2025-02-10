@@ -16,17 +16,17 @@ const MenuPages = [
   {
     id: 1,
     name: "Home",
-    link: "/#",
+    link: "/#home",
   },
   {
     id: 2,
     name: "Products",
-    link: "/#",
+    link: "/#products",
   },
   {
     id: 3,
     name: "Information",
-    link: "/#",
+    link: "/#information",
   },
 ];
 
