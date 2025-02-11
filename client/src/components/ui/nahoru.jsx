@@ -45,7 +45,7 @@ export default function Nahoru() {
     ${isVisible && "opacity-100"} 
     ${!isVisible && "opacity-0 pointer-events-none"}`}
     >
-      <ArrowUp size={20} />
+      <ArrowUp size={20} className="pointer-events-none"/>
     </button>
   );
 }

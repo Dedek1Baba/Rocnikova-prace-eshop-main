@@ -9,6 +9,7 @@ import {
   Menu,
   Settings,
   LogOut,
+  Truck,
 } from "lucide-react";
 import Logo from "../../assets/snith.logo.png";
 
@@ -36,6 +37,16 @@ export default function Header() {
 
   return (
     <>
+    
+    <div className="relative left-0 w-full bg-black text-white text-center py-2 font-semibold text-sm md:text-base lg:text-lg z-50">
+    <div className="flex justify-center items-center gap-2">
+    <Truck className="text-white" /> 
+    DOPRAVA ZDARMA | ČR a SK
+    </div>
+    </div>
+
+
+
       <div className="bg-primary/10 shadow-xl shadow-gray-500/80 sticky top-0 z-50 backdrop-blur-md">
         <div className="container flex justify-between py-5 mx-auto items-center px-4">
           <div className="relative flex items-center gap-2">
@@ -114,7 +125,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="fixed top-3 left-0 w-full h-[36vh] bg-white shadow-lg z-40 flex flex-col overflow-hidden lg:hidden">
+        <div className="fixed top-3 left-0 pb-4 w-full h-auto bg-white shadow-lg z-40 flex flex-col overflow-hidden lg:hidden">
           <div className="sticky top-0 left-0 w-full bg-white shadow-md flex items-center justify-between p-4">
             <img src={Logo} alt="logo" className="h-12" />
             <button className="text-primary hover:text-secondary" onClick={() => setMenuOpen(false)}>
@@ -131,13 +142,13 @@ export default function Header() {
           <div className="flex justify-center gap-4 mt-8 cursor-pointer">
             
           <a href="#shoppingcart">
-              <Button  className="bg-gradient-to-br from-primary to-secondary text-white rounded-full hover:bg-secondary/50 transition-all">
-                <ShoppingCart className="w-6 h-6 text-white hover:text-primary transition-all" />
+              <Button  className="bg-gradient-to-br from-primary to-secondary text-white rounded-full button_hover transition-all">
+                <ShoppingCart className="w-6 h-6 text-white  transition-all" />
               </Button>
             </a>
             <a href="#user">
-              <Button  className="bg-gradient-to-br from-primary to-secondary text-white rounded-full hover:bg-secondary/50 transition-all">
-                <User className="w-6 h-6 text-white hover:text-primary transition-all" />
+              <Button  className="bg-gradient-to-br from-primary to-secondary text-white rounded-full button_hover transition-all">
+                <User className="w-6 h-6 text-white  transition-all " />
               </Button>
             </a>
           </div>

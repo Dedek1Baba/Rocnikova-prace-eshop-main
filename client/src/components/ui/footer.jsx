@@ -47,7 +47,7 @@ export default function Footer() {
           <div className="text-center md:text-right flex flex-col justify-between ">
             <h3 className="text-xl font-semibold  uppercase tracking-wide">Kontakt</h3>
             <p className="mt-1 text-sm ">Malá Strana, 118 00 Praha 1</p>
-            <p className="text-sm ">info@snith.cz</p>
+            <p className="text-sm ">support@snith.cz</p>
             <p className="text-sm ">+420 999 999 999</p>
             <div className="flex justify-center md:justify-end space-x-4 mt-6 ">
               <a href="https://www.facebook.com/" className=" hover:text-secondary transition duration-300 ">

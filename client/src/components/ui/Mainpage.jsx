@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import grayHoodie from "../../assets/ghoodie.png"; 
 import pinkHoodie from "../../assets/phoodie.png"; 
 import blackHoodie from "../../assets/bhoodie.png"; 
-import backgroundImage from "../../assets/background.png";
+import backgroundImage from "../../assets/bggg.png";
 import logo from "../../assets/snith.logo.png";
 
 export default function Mainpage() {
@@ -55,7 +55,7 @@ export default function Mainpage() {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1.5 }}
             exit={{ opacity: 0, scale: 3, rotate: 45, y: -200, x: 100 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 1 }}
             className="absolute w-48 md:w-64"
           />
         )}
@@ -65,7 +65,7 @@ export default function Mainpage() {
         <motion.div 
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
-          transition={{ duration: 1 }} 
+          transition={{ duration: 0.5 }} 
           className="max-w-6xl w-full grid md:grid-cols-2 gap-8 items-center"
         >
 
