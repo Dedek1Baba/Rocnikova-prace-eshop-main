@@ -37,18 +37,14 @@ export default function Header() {
 
   return (
     <>
-    
-    <div className="relative left-0 w-full bg-black text-white text-center py-2 font-semibold text-sm md:text-base lg:text-lg z-50">
-    <div className="flex justify-center items-center gap-2">
-    <Truck className="text-white" /> 
+    <div className="fixed left-0 top-0 w-full bg-black  text-center  text-sm md:text-base lg:text-lg z-50">
+   <div className="text-white flex justify-center font-semibold items-center py-2 gap-2">
+    <Truck className="" /> 
     DOPRAVA ZDARMA | ČR a SK
     </div>
-    </div>
 
-
-
-      <div className="bg-primary/10 shadow-xl shadow-gray-500/80 sticky top-0 z-50 backdrop-blur-md">
-        <div className="container flex justify-between py-5 mx-auto items-center px-4">
+      <div className="bg-gray-200 shadow-xl shadow-gray-500/80 sticky top-0 z-50 backdrop-blur-md">
+        <div className="container flex justify-between py-5 mx-auto items-center px-4 ">
           <div className="relative flex items-center gap-2">
             <Search className="absolute right-3 text-primary md:w-6 w-5" />
             <Input
@@ -125,13 +121,8 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="fixed top-3 left-0 pb-4 w-full h-auto bg-white shadow-lg z-40 flex flex-col overflow-hidden lg:hidden">
-          <div className="sticky top-0 left-0 w-full bg-white shadow-md flex items-center justify-between p-4">
-            <img src={Logo} alt="logo" className="h-12" />
-            <button className="text-primary hover:text-secondary" onClick={() => setMenuOpen(false)}>
-              <X className="w-8 h-8" />
-            </button>
-          </div>
+        <div className=" pb-4 w-full h-auto bg-white shadow-lg z-40 flex flex-col overflow-hidden lg:hidden">
+          
           <div className="flex flex-col items-center mt-4 gap-6 overflow-y-auto">
             {MenuPages.map((data) => (
               <a key={data.id} href={data.link} className="text-lg hover:text-secondary cursor-pointer">
@@ -154,7 +145,7 @@ export default function Header() {
           </div>
         </div>
       )}
-      
+       </div>
      
     </>
   );

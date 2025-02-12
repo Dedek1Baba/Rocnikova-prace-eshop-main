@@ -6,11 +6,13 @@ import Mainpage from "./components/ui/Mainpage";
 import ScrollToTop from './components/ui/nahoru'
 import Vyhody from './components/ui/vyhody';
 
+
 function App() {
   return (
     <>
       <Header />
       <Mainpage />
+   
       <Vyhody />
       <Footer />
       <ScrollToTop />
