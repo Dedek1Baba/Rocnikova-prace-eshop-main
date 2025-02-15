@@ -5,7 +5,7 @@ import Logo from "../../assets/snith.logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-200 text-primary py-12 ">
+    <footer className=" text-white py-12 backdrop-blur-sm bg-opacity-95 border-t-2">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-4 gap-12 items-stretch">
           

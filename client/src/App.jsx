@@ -7,7 +7,6 @@ import ScrollToTop from './components/ui/nahoru'
 import Vyhody from './components/ui/vyhody';
 import Cardproduct from './components/ui/cardproduct';
 
-
 function App() {
   return (
     <>

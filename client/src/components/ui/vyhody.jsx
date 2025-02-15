@@ -9,7 +9,7 @@ import { Truck,
 export default function vyhody() {
   return (
 
-    <section className="bg-black text-white py-12">
+    <section className=" text-white py-12">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">Proč nakupovat u nás?</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

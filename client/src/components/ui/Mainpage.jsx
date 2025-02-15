@@ -38,11 +38,7 @@ export default function Mainpage() {
   return (
     <section
       className="relative w-full h-screen flex items-center justify-center px-6 md:px-16"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+     
     >
 
       
