@@ -14,9 +14,19 @@ import {
 import Logo from "../../assets/snith.logo.png";
 
 const MenuPages = [
-  { id: 1, name: "Home", link: "/#home" },
-  { id: 2, name: "Products", link: "/#products" },
-  { id: 3, name: "Information", link: "/#information" },
+  { id: 1, 
+    name: "Home", 
+    link: "/" 
+  },
+
+  { id: 2, 
+    name: "Products", 
+    link: "/products"
+   },
+  { id: 3,
+    name: "About Us", 
+    link: "/aboutus" 
+  },
 ];
 
 export default function Header() {
@@ -43,7 +53,7 @@ export default function Header() {
             />
           </div>
 
-          <a href="#home" className="absolute left-1/2 transform -translate-x-1/2">
+          <a href="/" className="absolute left-1/2 transform -translate-x-1/2">
             <img src={Logo} alt="logo" className="h-16" draggable="false" />
           </a>
 

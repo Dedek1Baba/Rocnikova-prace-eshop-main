@@ -3,14 +3,11 @@ import { Button } from "@/components/ui/button";
 import React from 'react';
 import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
-import Mainpage from "@/components/ui/Mainpage";
-import Vyhody from '@/components/ui/vyhody';
-import ScrollToTop from '@/components/ui/nahoru';
-import CardProduct from "@/components/ui/cardproduct";
-import Banner from "@/components/ui/banner";
-import css from "./home.module.css"; 
 
-export default function Home() {
+import ScrollToTop from '@/components/ui/nahoru';
+import css from "../Home/home.module.css"; 
+
+export default function Products() {
   return (
     <>
     <div className={css}></div>
@@ -21,10 +18,7 @@ export default function Home() {
         className="min-h-screen flex flex-col justify-center items-center">
         <div className="space-y-4 text-center">
        
-          <Mainpage /> <Banner />
-          <CardProduct />
-          <Vyhody />
-         
+    
         </div>
       </div>
 

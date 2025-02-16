@@ -41,7 +41,7 @@ export default function cardproduct() {
                     <img
                       src={product.image} 
                       alt={product.name} 
-                      className=" h-auto transition-opacity duration-300 hover:opacity-40 px-0 sm:px-14"
+                      className=" h-auto transition-opacity duration-300 hover:opacity-40  px-0 sm:px-14"
                       draggable="false"
                       style={{ filter: "drop-shadow(0 0 10px white)" }}
                     />  
@@ -54,7 +54,7 @@ export default function cardproduct() {
           </div>
         ))}
       </div> 
-            <a href="#products"className="mt-6 block" >
+            <a href="/products"className="mt-6 block" >
               <Button className="bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 font-bold py-3 px-4 shadow-lg hover:bg-gray-300 transition-all rounded-2xl">
                 Více produktů <ArrowRight />
               </Button>

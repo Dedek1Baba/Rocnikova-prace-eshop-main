@@ -37,7 +37,7 @@ export default function Mainpage() {
 
   return (
     <section
-      className="relative w-full h-screen flex items-center justify-center px-6 md:px-16"
+      className="relative w-full h-[84vh] flex items-center justify-center px-6 md:px-16"
      
     >
 
@@ -110,10 +110,15 @@ export default function Mainpage() {
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2 }}
-              className="w-80 md:w-96 rounded-xl select-none"
-              draggable="false"
+              className="w-80 md:w-96 rounded-xl select-none "
+           
               style={{
                 filter: "drop-shadow(0 0 10px white)",
+              }}
+              
+              whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.3 },
               }}
             />
 

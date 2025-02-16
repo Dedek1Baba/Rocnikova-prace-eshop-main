@@ -10,12 +10,7 @@ import Cardproduct from './components/ui/cardproduct';
 function App() {
   return (
     <>
-      <Header />
-      <Mainpage />
-      <Cardproduct />
-      <Vyhody />
-      <Footer />
-      <ScrollToTop />
+   <AppRoutes />
     </>
   )
 }
