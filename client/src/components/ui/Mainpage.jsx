@@ -111,11 +111,11 @@ export default function Mainpage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2 }}
               className="w-80 md:w-96 rounded-xl select-none "
-           
+           draggable="false"
               style={{
                 filter: "drop-shadow(0 0 10px white)",
               }}
-              
+
               whileHover={{
                 scale: 1.1,
                 transition: { duration: 0.3 },

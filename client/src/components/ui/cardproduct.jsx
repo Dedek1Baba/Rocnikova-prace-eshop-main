@@ -1,9 +1,11 @@
-import { useState } from "react";
+import React, { useEffect } from "react";
 import { Button } from "./button";
 import bhoodie from "../../assets/bhoodie.png";
 import phoodie from "../../assets/phoodie.png";
 import ghoodie from "../../assets/ghoodie.png";
 import { ArrowRight } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const products = [
   {
@@ -27,14 +29,23 @@ const products = [
 ];
 
 export default function cardproduct() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
+
   return (
       <div className=" p-12 text-center text-white">
-          <h2 className="text-4xl font-semibold mb-6 uppercase tracking-wide">
+          <h2 className="text-4xl font-semibold mb-6 uppercase tracking-wide" data-aos="fade-up">
             Nejoblíbenější produkty
           </h2>  
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center">
             {products.map((product, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center" data-aos="fade-up" data-aos-delay={index * 200}> 
                <a href={product.link} className="relative w-full max-w-fit mx-auto overflow-hidden rounded-2xl">
 
                 

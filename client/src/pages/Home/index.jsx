@@ -8,6 +8,7 @@ import Vyhody from '@/components/ui/vyhody';
 import ScrollToTop from '@/components/ui/nahoru';
 import CardProduct from "@/components/ui/cardproduct";
 import Banner from "@/components/ui/banner";
+import MotivationText from "@/components/ui/motivationtext";
 import css from "./home.module.css"; 
 
 export default function Home() {
@@ -21,9 +22,10 @@ export default function Home() {
         className="min-h-screen flex flex-col justify-center items-center">
         <div className="space-y-4 text-center">
        
-          <Mainpage /> <Banner />
-          <CardProduct />
-          <Vyhody />
+          <Mainpage /> 
+          <MotivationText /> 
+          <CardProduct /> <Vyhody /> 
+          <Banner />
          
         </div>
       </div>

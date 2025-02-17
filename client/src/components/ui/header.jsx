@@ -24,7 +24,7 @@ const MenuPages = [
     link: "/products"
    },
   { id: 3,
-    name: "About Us", 
+    name: "O Nás", 
     link: "/aboutus" 
   },
 ];
