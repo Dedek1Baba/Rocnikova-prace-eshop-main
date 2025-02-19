@@ -42,7 +42,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="backdrop-blur-sm bg-opacity-95 border-b-2 sticky top-0 z-50">
+      <div className="backdrop-blur-sm bg-opacity-95 border-b-2 sticky top-0 z-50 ">
         <div className="container flex justify-between py-5 mx-auto items-center px-4">
           <div className="relative flex items-center gap-2">
             <Search className="absolute right-3 text-primary md:w-6 w-5" />
@@ -60,7 +60,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-6">
             <ul className="lg:flex hidden items-center xl:gap-4 gap-0">
               {MenuPages.map((data) => (
-                <li key={data.id} className="relative group text-white">
+                <li key={data.id} className="relative group text-white font-semibold">
                   <a href={data.link} className="inline-block px-4 hover:text-secondary cursor-pointer">
                     {data.name}
                   </a>

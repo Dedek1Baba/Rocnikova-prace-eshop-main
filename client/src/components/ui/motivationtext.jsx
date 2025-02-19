@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { ArrowRight } from 'lucide-react';
 
 export default function motivationtext() {
 
@@ -28,8 +29,8 @@ export default function motivationtext() {
         <div className="flex justify-center mt-6" data-aos="fade-up">
 
             <a href="" >
-          <button className="bg-gradient-to-br from-primary to-secondary hover:text-secondary text-white text-lg font-semibold px-6 py-2 rounded-full hover:bg-gray-300 transition" data-aos="fade-up">
-            Ukázat cestu
+          <button className="bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 font-bold py-3 px-4 shadow-lg hover:bg-gray-300 transition-all rounded-3xl text-white items-center   flex" data-aos="fade-up">
+            Ukázat cestu <ArrowRight className="ml-1 "/>
           </button>
           </a>
 

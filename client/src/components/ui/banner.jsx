@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Logo from "../../assets/snith.logo.png";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { ArrowRight } from 'lucide-react';
 
 export default function Banner() {
 
@@ -40,8 +41,8 @@ export default function Banner() {
           </p>
 
           <a href="/aboutus">
-            <button className="mt-6 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary text-white px-6 py-3 rounded-full font-semibold shadow-md">
-              Více o SNITH
+            <button className="mt-6 text-white bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 font-bold py-3 px-4 shadow-lg hover:bg-gray-300 transition-all rounded-3xl flex items-center">
+              Více o SNITH  <ArrowRight className="ml-1 "/>
             </button>
           </a>
 

@@ -5,6 +5,7 @@ import pinkHoodie from "../../assets/phoodie.png";
 import blackHoodie from "../../assets/bhoodie.png"; 
 import backgroundImage from "../../assets/bggg.png";
 import logo from "../../assets/snith.logo.png";
+import { ArrowRight } from 'lucide-react';
 
 export default function Mainpage() {
   const [selectedColor, setSelectedColor] = useState("gray");
@@ -87,14 +88,14 @@ export default function Mainpage() {
               Vyrobeno z nejkvalitnějších materiálů, perfektní pro každodenní nošení.
             </motion.p>
 
-            <a href="#vice-info">
+            <a href="/hoodie">
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="mt-6 px-6 py-3 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary text-white text-lg font-semibold rounded-full shadow-md cursor-pointer"
+              className="mt-6 px-5 py-3 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 hover:bg-gray-300 transition-all rounded-3xl text-white text-lg font-semibold shadow-md cursor-pointer flex items-center gap-2"
             >
-              Zjistit více
+              Zjistit více <ArrowRight />
             </motion.button>
             </a>
           </div>

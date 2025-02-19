@@ -66,7 +66,7 @@ export default function cardproduct() {
         ))}
       </div> 
             <a href="/products"className="mt-6 block" >
-              <Button className="bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 font-bold py-3 px-4 shadow-lg hover:bg-gray-300 transition-all rounded-2xl">
+              <Button className="bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 font-bold py-3 px-4 shadow-lg hover:bg-gray-300 transition-all rounded-3xl" data-aos="fade-up">
                 Více produktů <ArrowRight />
               </Button>
               
