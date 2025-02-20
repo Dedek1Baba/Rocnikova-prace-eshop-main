@@ -9,6 +9,7 @@ import ScrollToTop from '@/components/ui/nahoru';
 import CardProduct from "@/components/ui/cardproduct";
 import Banner from "@/components/ui/banner";
 import MotivationText from "@/components/ui/motivationtext";
+import SaleEmail from "@/components/ui/saleemail";
 import css from "./home.module.css"; 
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
           <MotivationText /> 
           <CardProduct /> <Vyhody /> 
           <Banner />
+          <SaleEmail />
          
         </div>
       </div>

@@ -21,7 +21,8 @@ export default function AboutUs() {
 
       <Header />
 
-      <div className="max-w-7xl border backdrop-blur-sm  shadow-xl rounded-3xl p-16 mt-12 mb-12  mx-6 sm:mx-auto">
+      <div className="max-w-7xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-16 mt-12 mb-12 mx-6 sm:mx-auto">
+
 
 
 

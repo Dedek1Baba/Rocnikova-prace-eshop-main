@@ -16,7 +16,7 @@ export default function Banner() {
   return (
     <div className="flex items-center justify-center pt-[50px] pb-[80px] px-4 md:px-12">
 
-      <div className="container max-w-6xl border rounded-3xl p-6 md:p-12 flex flex-col md:flex-row items-center backdrop-blur-sm" data-aos="fade-up">
+      <div className="container max-w-6xl border rounded-3xl p-6 md:p-12 flex flex-col md:flex-row items-center backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)]" data-aos="fade-up">
 
         <div className="md:w-1/2 flex justify-center relative " data-aos="fade-up">
 

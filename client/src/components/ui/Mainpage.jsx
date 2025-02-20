@@ -93,7 +93,7 @@ export default function Mainpage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="mt-6 px-5 py-3 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 hover:bg-gray-300 transition-all rounded-3xl text-white text-lg font-semibold shadow-md cursor-pointer flex items-center gap-2"
+              className=" mt-6 px-5 py-3 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 hover:bg-gray-300 transition-all rounded-3xl text-white text-lg font-semibold shadow-md cursor-pointer flex items-center mx-auto md:mx-0 gap-2"
             >
               Zjistit více <ArrowRight />
             </motion.button>

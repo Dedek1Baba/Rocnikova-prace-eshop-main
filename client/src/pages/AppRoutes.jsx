@@ -3,7 +3,7 @@ import React from 'react'
 import Home from "./Home";
 import Products from "./Products";
 import AboutUs from "./AboutUs";
-import CarView from "./CarView";
+import Cart from "./Cart";
 import CarUpdateForm from "./CarUpdateForm";
 
 
@@ -16,7 +16,7 @@ export default function AppRoutes() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/products" element={<Products/>}/>
                 <Route path="/aboutus" element={<AboutUs/>}/>
-                <Route path="/car/:id" element={<CarView/>}/>
+                <Route path="/cart" element={<Cart/>}/>
                 <Route path="/update-car/:id" element={<CarUpdateForm/>}/>
             </Routes>
         </BrowserRouter>

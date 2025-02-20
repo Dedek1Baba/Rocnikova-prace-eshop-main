@@ -10,23 +10,21 @@ import {
   Settings,
   LogOut,
   Truck,
+  BadgePercent,
 } from "lucide-react";
 import Logo from "../../assets/snith.logo.png";
 
 const MenuPages = [
-  { id: 1, 
-    name: "Home", 
-    link: "/" 
-  },
+  { id: 1, name: "Home", link: "/", icon: BadgePercent },
 
-  { id: 2, 
-    name: "Products", 
-    link: "/products"
-   },
-  { id: 3,
-    name: "O Nás", 
-    link: "/aboutus" 
-  },
+  { id: 2, name: "Products", link: "/products", icon: BadgePercent },
+  { id: 3, name: "O Nás", link: "/aboutus", icon: BadgePercent },
+];
+
+const UserMenuPages = [
+  { id: "cart", name: "Košík", icon: ShoppingCart, link: "/cart" },
+
+  { id: "profile", name: "Profil", icon: User, link: "/profile" },
 ];
 
 export default function Header() {
@@ -35,7 +33,6 @@ export default function Header() {
 
   return (
     <>
- 
       <div className="w-full text-center text-sm md:text-base lg:text-lg">
         <div className="text-white flex justify-center font-semibold items-center py-2 gap-2 bg-black">
           <Truck /> DOPRAVA ZDARMA | ČR a SK
@@ -60,8 +57,14 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-6">
             <ul className="lg:flex hidden items-center xl:gap-4 gap-0">
               {MenuPages.map((data) => (
-                <li key={data.id} className="relative group text-white font-semibold">
-                  <a href={data.link} className="inline-block px-4 hover:text-secondary cursor-pointer">
+                <li
+                  key={data.id}
+                  className="relative group text-white font-semibold"
+                >
+                  <a
+                    href={data.link}
+                    className="inline-block px-4 hover:text-secondary cursor-pointer"
+                  >
                     {data.name}
                   </a>
                   <span className="absolute left-[15%] bottom-0 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-[72%]"></span>
@@ -69,7 +72,7 @@ export default function Header() {
               ))}
             </ul>
 
-            <a href="#cart">
+            <a href="/cart">
               <Button className="-ml-1 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary duration-200 text-white rounded-full items-center">
                 <ShoppingCart />
               </Button>
@@ -77,20 +80,39 @@ export default function Header() {
 
             <div className="relative">
               <a href="#user">
-                <Button className="-ml-3 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary duration-200 text-white rounded-full" onClick={() => setUserMenuOpen(!userMenuOpen)}>
+                <Button
+                  className="-ml-3 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary duration-200 text-white rounded-full"
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                >
                   <User />
                 </Button>
               </a>
 
               {userMenuOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg border rounded-lg">
-                  <a href="/profile" className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    <User className="w-5 h-5 text-gray-600" /> Profil
+                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg border rounded-[15px] font-medium ">
+                  <a
+                    href="/profile"
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-[15px]"
+                  >
+                    <User className="w-5 h-5 text-gray-600 " /> Profil
                   </a>
-                  <a href="/settings" className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <a
+                    href="/salecodes"
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-[15px]"
+                  >
+                    <BadgePercent className="w-5 h-5 text-gray-600" /> Slevové
+                    kódy
+                  </a>
+                  <a
+                    href="/settings"
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-[15px]"
+                  >
                     <Settings className="w-5 h-5 text-gray-600" /> Nastavení
                   </a>
-                  <a href="/logout" className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500">
+                  <a
+                    href="/logout"
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500 rounded-[15px]"
+                  >
                     <LogOut className="w-5 h-5 text-red-500" /> Odhlásit se
                   </a>
                 </div>
@@ -116,25 +138,37 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="pb-4 w-full h-auto bg-white shadow-lg z-40 flex flex-col overflow-hidden lg:hidden">
-          <div className="flex flex-col items-center mt-4 gap-6 overflow-y-auto">
-            {MenuPages.map((data) => (
-              <a key={data.id} href={data.link} className="text-lg hover:text-secondary cursor-pointer">
-                {data.name}
-              </a>
-            ))}
-          </div>
-          <div className="flex justify-center gap-4 mt-8 cursor-pointer">
-            <a href="#shoppingcart">
-              <Button className="bg-gradient-to-br from-primary to-secondary text-white rounded-full transition-all">
-                <ShoppingCart className="w-6 h-6 text-white" />
-              </Button>
-            </a>
-            <a href="#user">
-              <Button className="bg-gradient-to-br from-primary to-secondary text-white rounded-full transition-all">
-                <User className="w-6 h-6 text-white" />
-              </Button>
-            </a>
+        <div className="absolute right-3 mt-1 w-40 bg-white shadow-lg border rounded-[15px] z-40 flex flex-col overflow-hidden lg:hidden">
+          <div className="w-full h-auto bg-white shadow-lg flex flex-col overflow-hidden">
+            <div className="flex flex-col items-start gap-1 p-2 w-full">
+              {MenuPages.map((data) => (
+                <a
+                  key={data.id}
+                  href={data.link}
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-[15px] w-full text-left"
+                >
+                  <data.icon className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-900 font-medium flex-1">
+                    {data.name}
+                  </span>
+                </a>
+              ))}
+
+              <hr className="border-t border-gray-300 w-full my-1" />
+
+              {UserMenuPages.map((data) => (
+                <a
+                  key={data.id}
+                  href={data.link}
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-[15px] w-full text-left"
+                >
+                  <data.icon className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-900 font-medium flex-1">
+                    {data.name}
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}
