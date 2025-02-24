@@ -5,6 +5,7 @@ import Products from "./Products";
 import AboutUs from "./AboutUs";
 import Cart from "./Cart";
 import CarUpdateForm from "./CarUpdateForm";
+import Admin from "./Admin";
 
 
 export default function AppRoutes() {
@@ -17,7 +18,7 @@ export default function AppRoutes() {
                 <Route path="/products" element={<Products/>}/>
                 <Route path="/aboutus" element={<AboutUs/>}/>
                 <Route path="/cart" element={<Cart/>}/>
-                <Route path="/update-car/:id" element={<CarUpdateForm/>}/>
+                <Route path="/admin" element={<Admin/>}/>
             </Routes>
         </BrowserRouter>
     </>
