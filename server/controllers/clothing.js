@@ -1,40 +1,40 @@
-const Car = require("../models/cars");
+const Clothing = require("../models/clothing");
 
-exports.getAllCars = async (req, res, next) => {
+exports.getAllClothing = async (req, res, next) => {
   try {
-    const data = await Car.find();
+    const data = await Clothing.find();
     if (data && data.length !== 0) {
       return res.status(200).send({
-        message: "cars found",
+        message: "Clothing found",
         payload: data,
       });
     }
     res.status(404).send({
-      message: "cars not found",
+      message: "Clothing not found",
     });
   } catch (err) {
     res.status(500).send(err);
   }
 };
-exports.getCarById = async (req, res, next) => {
+exports.getClothingById = async (req, res, next) => {
   try {
-    const data = await Car.findById(req.params.id);
+    const data = await Clothing.findById(req.params.id);
     if (data) {
       return res.status(200).send({
-        message: "car found",
+        message: "Clothing found",
         payload: data,
       });
     }
     res.status(404).send({
-      message: "car not found",
+      message: "Clothing not found",
     });
   } catch (err) {
     res.status(500).send(err);
   }
 };
-exports.createCar = async (req, res, next) => {  
+exports.createClothing = async (req, res, next) => {  
     try {
-        const data = new Car({
+        const data = new Clothing({
             name: req.body.name,
             brand: req.body.brand,
             color: req.body.color,
@@ -43,7 +43,7 @@ exports.createCar = async (req, res, next) => {
         const result = await data.save();
         if (result) {
             return res.status(201).send({
-                message: "car created",
+                message: "Clothing created",
                 payload: result
             })
         }
@@ -54,7 +54,7 @@ exports.createCar = async (req, res, next) => {
     res.status(500).send(err);
   }
 };
-exports.updateCar = async (req, res, next) => {
+exports.updateClothing = async (req, res, next) => {
   try {
     const data = {
       name: req.body.name,
@@ -62,31 +62,31 @@ exports.updateCar = async (req, res, next) => {
       color: req.body.color,
       price: req.body.price,
     };
-    const result = await Car.findByIdAndUpdate(req.params.id, data);
+    const result = await Clothing.findByIdAndUpdate(req.params.id, data);
     if (result) {
       return res.status(200).send({
-        message: "Car updated",
+        message: "Clothing updated",
         payload: result,
       });
     }
     res.status(500).send({
-        message: "Car not updated",
+        message: "Clothing not updated",
     })
   } catch (err) {
     res.status(500).send(err);
   }
 };
-exports.deleteCar = async (req, res, next) => {
+exports.deleteClothing = async (req, res, next) => {
     try {
-        const result = await Car.findByIdAndDelete(req.params.id);
+        const result = await Clothing.findByIdAndDelete(req.params.id);
         if (result) {
             return res.status(200).send({
-                message: "car deleted",
+                message: "Clothing deleted",
                 payload: result
             })
         }
         res.status(500).send({
-            message: "cat not deleted",
+            message: "Clothing not deleted",
         })
   } catch (err) {
     res.status(500).send(err);

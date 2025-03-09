@@ -1,7 +1,7 @@
 
 
-export const getAllCars = async () => {
-    const req = await fetch("http://localhost:3000/cars", {
+export const getAllClothing = async () => {
+    const req = await fetch("http://localhost:3000/clothing", {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
@@ -15,8 +15,8 @@ export const getAllCars = async () => {
         message: data.message
     }
 }
-export const getCarById = async (id) => {
-    const req = await fetch(`http://localhost:3000/cars/${id}`, {
+export const getClothingById = async (id) => {
+    const req = await fetch(`http://localhost:3000/clothing/${id}`, {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
@@ -30,8 +30,8 @@ export const getCarById = async (id) => {
         message: data.message
     }
 }
-export const createCar = async (formData) => {
-    const req = await fetch(`http://localhost:3000/cars`, {
+export const createClothing = async (formData) => {
+    const req = await fetch(`http://localhost:3000/clothing`, {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
@@ -46,8 +46,8 @@ export const createCar = async (formData) => {
         message: data.message
     }
 }
-export const updateCar = async (id, formData) => {
-    const req = await fetch(`http://localhost:3000/cars/${id}`, {
+export const updateClothing = async (id, formData) => {
+    const req = await fetch(`http://localhost:3000/clothing/${id}`, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -62,8 +62,8 @@ export const updateCar = async (id, formData) => {
         message: data.message,
       };
 };
-export const deleteCar = async (id) => {
-    const req = await fetch(`http://localhost:3000/cars/${id}`, {
+export const deleteClothing = async (id) => {
+    const req = await fetch(`http://localhost:3000/clothing/${id}`, {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"

@@ -4,8 +4,13 @@ import Home from "./Home";
 import Products from "./Products";
 import AboutUs from "./AboutUs";
 import Cart from "./Cart";
-import CarUpdateForm from "./CarUpdateForm";
 import Admin from "./Admin";
+import Create from "./ClothingCreateForm";
+import Clothing from "./ClothingList";
+import Update from "./ClothingUpdateForm";
+import ClothingView from "./ClothingView";
+import CreatedClothing from "./ClothingCreateForm/CreatedClothing";
+
 
 
 export default function AppRoutes() {
@@ -19,6 +24,15 @@ export default function AppRoutes() {
                 <Route path="/aboutus" element={<AboutUs/>}/>
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/admin" element={<Admin/>}/>
+                <Route path="/createclothing" element={<Create/>}/>
+                <Route path="/clothing" element={<Clothing/>}/>
+                <Route path="/update" element={<Update/>}/>
+                <Route path="/blogadmin" element={<Admin/>}/>
+
+          <Route path="/view" element={<ClothingView />} />
+          <Route path="/createdclothing" element={<CreatedClothing />} />
+ 
+     
             </Routes>
         </BrowserRouter>
     </>

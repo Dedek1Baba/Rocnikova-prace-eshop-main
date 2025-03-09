@@ -1,27 +1,27 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { updateCar, getCarById } from "../../models/Car";
+import { updateClothing, getClothingById } from "../../models/Clothing";
 
-export default function CarUpdateForm() {
+export default function ClothingUpdateForm() {
   const { id } = useParams();
-  const [ car, setCar ] = useState();
+  const [ clothing, setClothing ] = useState();
   const [ isLoaded, setLoaded ] = useState();
   const [ info, setInfo ] = useState();
   const [ formData, setFormData ] = useState();
   const navigate = useNavigate();
 
   const load = async () => {
-    const data = await getCarById(id);
+    const data = await getClothingById(id);
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
-      setCar(data.payload);
+      setClothing(data.payload);
       setLoaded(true);
     }
   };
 
   const updateForm = async () => {
-    const data = await updateCar(id, formData);
-    if (data.status === 200) return navigate(`/car/${id}`);
+    const data = await updateClothing(id, formData);
+    if (data.status === 200) return navigate(`/clothing/${id}`);
     setInfo(data.message);
   };
 
@@ -41,7 +41,7 @@ export default function CarUpdateForm() {
   if (isLoaded === null) {
     return (
       <>
-        <p>Car not found</p>
+        <p>Clothing not found</p>
       </>
     )
   }
@@ -49,22 +49,22 @@ export default function CarUpdateForm() {
   if (!isLoaded) {
     return (
       <>
-        <p>Car is loading...</p>
+        <p>Clothing is loading...</p>
       </>
     )
   }
 
   return (
     <>
-      <h1>Car update form</h1>
+      <h1>Clothing update form</h1>
       <p>{id}</p>
       <form>
-      <input type="text" name="name" required placeholder="Enter name" onChange={handleChange} defaultValue={car.name}/>
-        <input type="text" name="brand" required placeholder="Enter brand" onChange={handleChange} defaultValue={car.brand}/>
-        <input type="text" name="color" required placeholder="Enter color" onChange={handleChange} defaultValue={car.color}/>
-        <input type="number" name="price" required placeholder="Enter price" onChange={handleChange} defaultValue={car.price}/>
+      <input type="text" name="name" required placeholder="Enter name" onChange={handleChange} defaultValue={clothing.name}/>
+        <input type="text" name="brand" required placeholder="Enter brand" onChange={handleChange} defaultValue={clothing.brand}/>
+        <input type="text" name="color" required placeholder="Enter color" onChange={handleChange} defaultValue={clothing.color}/>
+        <input type="number" name="price" required placeholder="Enter price" onChange={handleChange} defaultValue={clothing.price}/>
         <button onClick={handleUpdate}>
-          Update Car
+          Update Clothing
         </button>
       </form>
     </>

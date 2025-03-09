@@ -7,4 +7,4 @@ const schema = mongoose.Schema({
     price: {type: Number, required: true},
 });
 
-module.exports = mongoose.model("Car", schema);
+module.exports = mongoose.model("Clothing", schema);
