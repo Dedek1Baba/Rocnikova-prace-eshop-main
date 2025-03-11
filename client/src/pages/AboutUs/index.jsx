@@ -4,6 +4,7 @@ import Footer from "@/components/ui/footer";
 import ScrollToTop from "@/components/ui/nahoru";
 import French from "../../assets/frenchterrycotton.jpg";
 import Logo from "../../assets/snith.logo.png";
+import { Instagram, Facebook, Youtube } from "lucide-react";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -21,17 +22,12 @@ export default function AboutUs() {
 
       <Header />
 
-      <div className="max-w-7xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-16 mt-12 mb-12 mx-6 sm:mx-auto">
-
-
-
-
-        <section data-aos="fade-up" className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold text-gray-300 mb-6 tracking-wide leading-tight">O značce Snith</h1>
-          <p className="text-lg text-white leading-relaxed">
-            Snith je moderní streetwearová značka, která spojuje kvalitu, komfort a styl. Naše produkty jsou navrženy pro každodenní nošení, 
-            a přitom odrážejí vysoký standard zpracování a inovativního designu. Klademe důraz na materiály, které vydrží, a na detaily, které
-            dělají každý kousek unikátním.
+      <div className="container mx-auto max-w-7xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-6 sm:p-12 mt-12 mb-12">
+    
+      <section className="text-center space-y-6 mb-16" data-aos="zoom-in">
+          <h1 className="text-6xl font-extrabold tracking-tight drop-shadow-lg text-gray-100">- Snith Vision -</h1>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            Vstup do světa Snith – streetwearu, kde se potkává estetika s energií města. Tvoříme styl, který má význam. Nezapomeň, že Snith není jen značka, ale je to mindset.
           </p>
         </section>
 
@@ -61,9 +57,9 @@ export default function AboutUs() {
 
 
 
-        <section className="text-center mb-16" data-aos="fade-up">
+        <section className="text-left mb-16" data-aos="fade-up">
           <h2 className="text-4xl font-semibold mb-4 text-gray-300">Naše filozofie</h2>
-          <p className="text-xl text-white mx-auto max-w-4xl leading-relaxed">
+          <p className="text-xl text-white">
             Naše filozofie je jednoduchá - kvalitní, udržitelné a inovativní oblečení, které respektuje přírodu a zároveň poskytuje maximální komfort. 
             Věříme v dlouhodobou hodnotu, kterou naše produkty přináší našim zákazníkům, a proto klademe důraz na ekologické a etické výrobní procesy.
           </p>
@@ -98,13 +94,26 @@ export default function AboutUs() {
 
 
        
-        <section className="text-center mb-16" data-aos="fade-up">
+        <section className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-4xl font-semibold mb-4 text-gray-300">Kde nás najdete?</h2>
           <p className="text-xl text-white mx-auto max-w-4xl">
             Naše produkty si můžete zakoupit online na našem e-shopu, kde nabízíme naši limitovanou kolekci. Dále máme soicální síťě jako například Instagram, YouTube a Facebook.
           </p>
         </section>
-
+        <section className="text-center" data-aos="fade-up">
+  
+        <div className="flex justify-center space-x-4 mt-6 text-white">
+              <a href="https://www.facebook.com/" className=" hover:text-secondary transition duration-300 ">
+                <Facebook size={28} className="cursor-pointer"/>
+              </a>
+              <a href="https://www.instagram.com/" className=" hover:text-secondary transition duration-300 ">
+                <Instagram size={28} className="cursor-pointer"/>
+              </a>
+              <a href="https://www.youtube.com/" className=" hover:text-secondary transition duration-300">
+                <Youtube size={28} className="cursor-pointer"/>
+              </a>
+            </div>
+        </section>
       </div>
 
       <Footer />
