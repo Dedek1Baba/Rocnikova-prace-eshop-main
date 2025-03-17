@@ -39,6 +39,7 @@ exports.createClothing = async (req, res, next) => {
             brand: req.body.brand,
             color: req.body.color,
             price: req.body.price,
+            image: req.body.image,
         })
         const result = await data.save();
         if (result) {

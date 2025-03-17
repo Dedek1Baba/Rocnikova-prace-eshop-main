@@ -18,7 +18,7 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
 
       <Header />
 
@@ -38,6 +38,7 @@ export default function AboutUs() {
             src={French}
             alt="Výroba tkaniny"
             className="w-full md:w-1/2 rounded-2xl shadow-xl transform transition-all hover:scale-105"
+            draggable="false"
           />
           <div className="md:w-1/2">
             <h2 className="text-4xl font-semibold mb-4 text-gray-300">Použité materiály</h2>
@@ -79,6 +80,7 @@ export default function AboutUs() {
             src={Logo}
             alt="Náš tým"
             className="w-full md:w-1/2 rounded-2xl shadow-xl transform transition-all hover:scale-105"
+            draggable="false"
           />
           <div className="md:w-1/2">
             <h2 className="text-4xl font-semibold mb-4 text-gray-300">Náš tým</h2>

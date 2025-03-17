@@ -1,6 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { updateClothing, getClothingById } from "../../models/Clothing";
+import { Button } from "@/components/ui/button";
 
 export default function ClothingUpdateForm() {
   const { id } = useParams();
@@ -55,18 +56,89 @@ export default function ClothingUpdateForm() {
   }
 
   return (
-    <>
-      <h1>Clothing update form</h1>
-      <p>{id}</p>
-      <form>
-      <input type="text" name="name" required placeholder="Enter name" onChange={handleChange} defaultValue={clothing.name}/>
-        <input type="text" name="brand" required placeholder="Enter brand" onChange={handleChange} defaultValue={clothing.brand}/>
-        <input type="text" name="color" required placeholder="Enter color" onChange={handleChange} defaultValue={clothing.color}/>
-        <input type="number" name="price" required placeholder="Enter price" onChange={handleChange} defaultValue={clothing.price}/>
-        <button onClick={handleUpdate}>
-          Update Clothing
-        </button>
+    <> <div className="flex items-center justify-center min-h-screen p-6">
+    <div className="bg-white shadow-xl rounded-3xl p-6 w-full max-w-md flex flex-col items-center gap-4">
+      <h1 className="text-2xl font-semibold text-gray-900">Clothing Update</h1>
+      <p className="text-gray-500">ID: {id}</p>
+  
+      <form className="flex flex-col gap-1 w-full">
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Enter name"
+          onChange={handleChange}
+          defaultValue={clothing.name}
+          className="p-3 border rounded-lg w-full"
+        />
+        <input
+          type="text"
+          name="brand"
+          required
+          placeholder="Enter brand"
+          onChange={handleChange}
+          defaultValue={clothing.brand}
+          className="p-3 border rounded-lg w-full"
+        />
+        <input
+          type="text"
+          name="color"
+          required
+          placeholder="Enter color"
+          onChange={handleChange}
+          defaultValue={clothing.color}
+          className="p-3 border rounded-lg w-full"
+        />
+        <input
+          type="number"
+          name="price"
+          required
+          placeholder="Enter price"
+          onChange={handleChange}
+          defaultValue={clothing.price}
+          className="p-3 border rounded-lg w-full"
+        />
+
+<input
+          type="text"
+          name="image"
+          required
+          placeholder="Enter image URL"
+          onChange={handleChange}
+          defaultValue={clothing.image}
+          className="p-3 border rounded-lg w-full"
+        />
+
+
       </form>
+  
+      <form className="flex flex-col gap-1 w-full">
+        <Button
+          onClick={handleUpdate}
+          className="bg-indigo-600 hover:bg-indigo-500 w-full py-4 text-white text-lg rounded-lg"
+        >
+          Update Clothing
+        </Button>
+  
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-[8px] mt-1">
+          <Link to="/admin">
+            <Button className="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold w-full">
+              Go back
+            </Button>
+          </Link>
+          <Link to="/">
+            <Button className="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold w-full">
+              Main Page
+            </Button>
+          </Link>
+        </div>
+  
+        <p className="text-red-500">{info}</p>
+      </form>
+    </div>
+  </div>
+  
+  
     </>
   )
 }

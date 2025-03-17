@@ -28,9 +28,9 @@ export default function cart() {
 
       <Header />
    
-        <div className=" p-12 text-center text-white">
+      <div className="min-h-screen text-white">
 
-          <h2 className="text-4xl font-semibold mb-6 uppercase tracking-wide" data-aos="fade-up">
+          <h2 className="mt-8 text-4xl font-semibold text-center uppercase tracking-wide" data-aos="fade-up">
             Košík
           </h2>  
 

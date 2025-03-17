@@ -6,20 +6,32 @@ export default function CreatedClothing() {
 
   return (
     <>
-      <div className="container mx-auto flex flex-col items-center justify-center gap-2 grid_background min-h-screen">
-        <h1 className="text-2xl font-bold">Created Clothing</h1>
-        <p className="text-lg">
-          <span className="text-gray-800 font-normal">ID:</span>
-          <span className="text-gray-600 font-light ml-2">{id}</span>
-        </p>
-        <Link to={`/clothing/${id}`}>
-          <Button className="w-full text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-            View Clothing
-          </Button>
-        </Link>
-        <Link to={"/admin"}>
-          <Button variant="outline">Go back</Button>
-        </Link>
+      <div className="flex items-center justify-center min-h-screen p-6">
+        <div className="bg-white shadow-xl rounded-3xl p-6 w-full max-w-md flex flex-col items-center gap-4">
+          <h1 className="text-2xl font-semibold text-gray-900">Created Clothing</h1>
+
+          <p className="text-lg text-gray-700">
+            <span className="font-medium">ID:</span>
+            <span className="text-gray-600 font-light ml-2">{id}</span>
+          </p>
+
+          <div className="flex flex-col gap-2 w-full">
+            <Link to={`/clothing/${id}`}>
+              <Button className="w-full text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-3 focus:outline-none">
+                View Clothing
+              </Button>
+            </Link>
+
+            <Link to={"/admin"}>
+              <Button
+                variant="outline"
+                className="w-full border border-gray-300 hover:bg-gray-100 text-gray-900 font-medium rounded-lg text-sm px-5 py-3"
+              >
+                Go back
+              </Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
