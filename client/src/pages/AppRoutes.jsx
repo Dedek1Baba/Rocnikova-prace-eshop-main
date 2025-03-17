@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import Home from "./Home";
-import Products from "./Products";
+
 import AboutUs from "./AboutUs";
 import Cart from "./Cart";
 import Admin from "./Admin";
@@ -9,6 +9,8 @@ import Create from "./ClothingCreateForm";
 import Clothing from "./ClothingList";
 import Update from "./ClothingUpdateForm";
 import ClothingView from "./ClothingView";
+import Product from "./MainView";
+import Products from "./MainList/index";
 import CreatedClothing from "./ClothingCreateForm/CreatedClothing";
 
 export default function AppRoutes() {
@@ -17,7 +19,7 @@ export default function AppRoutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
+     
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/cart" element={<Cart />} />
 
@@ -29,6 +31,8 @@ export default function AppRoutes() {
           <Route path="/view/:id" element={<ClothingView />} />
           <Route path="/created-clothing/:id" element={<CreatedClothing />} />
           <Route path="/clothing/:id" element={<Clothing />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
     </>
