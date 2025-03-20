@@ -67,7 +67,9 @@ export default function ClothingView() {
     <div className="space-y-2 text-base text-gray-700">
       <p><span className="font-semibold">ID:</span> {id}</p>
       <p><span className="font-semibold">Název:</span> {clothing.name}</p>
-      <p><span className="font-semibold">Značka:</span> {clothing.brand}</p>
+      <p><span className="font-semibold">Material:</span> {clothing.material}</p>
+      <p><span className="font-semibold">Gramáž:</span> {clothing.gram}</p>
+      <p><span className="font-semibold">Doba dodání:</span> {clothing.delivery}</p>
       <p><span className="font-semibold">Barva:</span> {clothing.color}</p>
       <p><span className="font-semibold">Cena:</span> {clothing.price}</p>
       <p><span className="font-semibold">Url Obrázku:</span> {clothing.image}</p>

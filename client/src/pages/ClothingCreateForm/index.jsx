@@ -47,9 +47,25 @@ export default function ClothingClothingCreateForm() {
               />
               <input
                 type="text"
-                name="brand"
+                name="material"
                 required
-                placeholder="Enter brand"
+                placeholder="Enter material"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              />
+               <input
+                type="number"
+                name="gram"
+                required
+                placeholder="Enter gram"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              />
+               <input
+                type="number"
+                name="delivery"
+                required
+                placeholder="Enter delivery"
                 onChange={handleChange}
                 className="p-3 border rounded-lg w-full"
               />

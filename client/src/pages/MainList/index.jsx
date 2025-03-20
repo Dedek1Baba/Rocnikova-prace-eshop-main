@@ -42,25 +42,28 @@ export default function Main() {
       </>
     );
   }
+  
 
   if (isLoaded) {
     return (
       <>
       <div className={css}></div>
        <Header />
-        <div className="flex items-center justify-center min-h-screen p-6">
-          <div className="bg-white shadow-xl rounded-3xl p-8 w-full max-w-md flex flex-col items-center gap-6 ">
-            <h1 className="text-2xl font-semibold text-gray-900">
-              Clothing list
+
+        <div className="px-12 pt-12 pb-12">  <h1 className="text-3xl font-semibold text-white text-center mb-12">
+              Naše produkty
             </h1>
-            <div className=" font-light float-right">
+        
+          
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 justify-center items-start">
+
               {clothing.map((clothing, index) => (
                 <MainLink key={index} {...clothing} />
               ))}
             </div>
 
            
-          </div>{" "}
+        
         </div>
 
           <Footer />

@@ -62,53 +62,63 @@ export default function ClothingUpdateForm() {
       <p className="text-gray-500">ID: {id}</p>
   
       <form className="flex flex-col gap-1 w-full">
-        <input
-          type="text"
-          name="name"
-          required
-          placeholder="Enter name"
-          onChange={handleChange}
-          defaultValue={clothing.name}
-          className="p-3 border rounded-lg w-full"
-        />
-        <input
-          type="text"
-          name="brand"
-          required
-          placeholder="Enter brand"
-          onChange={handleChange}
-          defaultValue={clothing.brand}
-          className="p-3 border rounded-lg w-full"
-        />
-        <input
-          type="text"
-          name="color"
-          required
-          placeholder="Enter color"
-          onChange={handleChange}
-          defaultValue={clothing.color}
-          className="p-3 border rounded-lg w-full"
-        />
-        <input
-          type="number"
-          name="price"
-          required
-          placeholder="Enter price"
-          onChange={handleChange}
-          defaultValue={clothing.price}
-          className="p-3 border rounded-lg w-full"
-        />
-
-<input
-          type="text"
-          name="image"
-          required
-          placeholder="Enter image URL"
-          onChange={handleChange}
-          defaultValue={clothing.image}
-          className="p-3 border rounded-lg w-full"
-        />
-
+      <input
+                type="text"
+                name="name"
+                required
+                placeholder="Enter name"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              />
+              <input
+                type="text"
+                name="material"
+                required
+                placeholder="Enter material"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              />
+               <input
+                type="number"
+                name="gram"
+                required
+                placeholder="Enter gram"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              />
+               <input
+                type="number"
+                name="delivery"
+                required
+                placeholder="Enter delivery"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              />
+              <input
+                type="text"
+                name="color"
+                required
+                placeholder="Enter color"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              />
+            
+              <input
+                type="number"
+                name="price"
+                required
+                placeholder="Enter price"
+                onChange={handleChange}
+                className="p-3 border rounded-lg w-full"
+              /> 
+               <input
+              type="text"
+              name="image"
+              required
+              placeholder="Enter image URL"
+              onChange={handleChange}
+              className="p-3 border rounded-lg w-full"
+            />
 
       </form>
   

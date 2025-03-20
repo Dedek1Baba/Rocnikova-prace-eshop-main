@@ -151,12 +151,12 @@ export default function Header() {
                 <User />
               </Button>
               {userMenuOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg border rounded-[15px] font-medium">
+                <div className="absolute right-0 mt-8 w-40 shadow-lg border rounded-[15px] font-medium overflow-hidden">
                   {UserMenuPages.map((data) => (
                     <a
                       key={data.id}
                       href={data.link}
-                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-[15px]"
+                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black"
                       style={data.style}
                     >
                       <data.icon className="w-5 h-5" style={data.style} />
@@ -196,30 +196,30 @@ export default function Header() {
           </div>
 
           {menuOpen && (
-            <div className="fixed top-24 right-3 w-[15vh] bg-white shadow-lg border rounded-xl z-50 flex flex-col overflow-hidden lg:hidden menu-container">
+            <div className="fixed top-24 right-3 w-[15vh]  shadow-lg border rounded-xl z-50 flex flex-col overflow-hidden lg:hidden menu-container">
               {MenuPages.map((data) => (
                 <a
                   key={data.id}
                   href={data.link}
-                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black"
                 >
-                  <data.icon className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-900 font-medium">{data.name}</span>
+                  <data.icon className="w-5 h-5 text-white group-hover:text-black" />
+                  <span className=" font-medium group-hover:text-black">{data.name}</span>
                 </a>
               ))}
-              <hr className="border-t border-gray-300 w-full my-1" />
+              <hr className="border-t border-gray-300 w-full my-0" />
               {UserMenuPages.map((data) => (
                 <a
                   key={data.id}
                   href={data.link}
-                  className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer "
                 >
                   <data.icon
-                    className="w-5 h-5 text-gray-700"
+                    className="w-5 h-5 text-white group-hover:text-black"
                     style={data.style}
                   />
                   <span
-                    className="text-gray-900 font-medium"
+                    className="font-medium group-hover:text-black"
                     style={data.style}
                   >
                     {data.name}

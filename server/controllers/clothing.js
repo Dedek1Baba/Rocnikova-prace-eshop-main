@@ -32,25 +32,27 @@ exports.getClothingById = async (req, res, next) => {
     res.status(500).send(err);
   }
 };
-exports.createClothing = async (req, res, next) => {  
-    try {
-        const data = new Clothing({
-            name: req.body.name,
-            brand: req.body.brand,
-            color: req.body.color,
-            price: req.body.price,
-            image: req.body.image,
-        })
-        const result = await data.save();
-        if (result) {
-            return res.status(201).send({
-                message: "Clothing created",
-                payload: result
-            })
-        }
-        res.status(500).send({
-            message: "not found",
-        })
+exports.createClothing = async (req, res, next) => {
+  try {
+    const data = new Clothing({
+      name: req.body.name,
+      material: req.body.material,
+      gram: req.body.gram,
+      delivery: req.body.delivery,
+      color: req.body.color,
+      price: req.body.price,
+      image: req.body.image,
+    });
+    const result = await data.save();
+    if (result) {
+      return res.status(201).send({
+        message: "Clothing created",
+        payload: result,
+      });
+    }
+    res.status(500).send({
+      message: "not found",
+    });
   } catch (err) {
     res.status(500).send(err);
   }
@@ -59,7 +61,9 @@ exports.updateClothing = async (req, res, next) => {
   try {
     const data = {
       name: req.body.name,
-      brand: req.body.brand,
+      material: req.body.material,
+      gram: req.body.gram,
+      delivery: req.body.delivery,
       color: req.body.color,
       price: req.body.price,
       image: req.body.image,
@@ -72,24 +76,24 @@ exports.updateClothing = async (req, res, next) => {
       });
     }
     res.status(500).send({
-        message: "Clothing not updated",
-    })
+      message: "Clothing not updated",
+    });
   } catch (err) {
     res.status(500).send(err);
   }
 };
 exports.deleteClothing = async (req, res, next) => {
-    try {
-        const result = await Clothing.findByIdAndDelete(req.params.id);
-        if (result) {
-            return res.status(200).send({
-                message: "Clothing deleted",
-                payload: result
-            })
-        }
-        res.status(500).send({
-            message: "Clothing not deleted",
-        })
+  try {
+    const result = await Clothing.findByIdAndDelete(req.params.id);
+    if (result) {
+      return res.status(200).send({
+        message: "Clothing deleted",
+        payload: result,
+      });
+    }
+    res.status(500).send({
+      message: "Clothing not deleted",
+    });
   } catch (err) {
     res.status(500).send(err);
   }
