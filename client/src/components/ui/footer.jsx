@@ -6,28 +6,27 @@ export default function Footer() {
   return (
     <footer className=" text-white py-12 backdrop-blur-sm bg-opacity-95 border-t-2">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-4 gap-12 items-stretch">
-          <div className="text-center md:text-left flex flex-col justify-between">
+        <div className="grid md:grid-cols-5 gap-12 items-stretch">
+        <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
             <img
               src={Logo}
               alt="Snith Logo"
-              className="w-40 h-auto mx-auto md:mx-0 mb-4 "
+              className="w-36 h-auto mb-3"
               draggable="false"
             />
-            <p className=" text-sm leading-relaxed  font-semibold">
-              They didnt't believe in us. You did! New SNITH. Better products.
-              Follow our socials!
+            <p className="text-sm leading-relaxed font-semibold max-w-xs">
+              They didn't believe in us. You did! New SNITH. Better products. Follow our socials!
             </p>
           </div>
 
-          <div className="text-center flex flex-col justify-between">
-            <h3 className="text-xl font-semibold  uppercase tracking-wide">
+          <div className="text-center md:text-center mb-8 md:mb-0">
+            <h3 className="text-xl font-semibold uppercase tracking-wide">
               Navigace
             </h3>
-            <ul className="mt-4 space-y-3 ">
+            <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
                   Home
@@ -35,39 +34,39 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/aboutus"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
-                  Information
+                  O Nás
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/products"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
-                  Products
+                  Produkty
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/discounts"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
-                  X
+                  Slevové kódy
                 </a>
               </li>
             </ul>
           </div>
 
-          <div className="text-center flex flex-col justify-between">
+          <div className="text-center md:text-center mb-8 md:mb-0">
             <h3 className="text-xl font-semibold uppercase tracking-wide">
-              About us
+              INFORMACE
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="/blog"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
                   Blog
@@ -75,7 +74,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/faq"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
                   FAQ
@@ -83,7 +82,31 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/sizes"
+                  className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
+                >
+                  Tabulka velikosti
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/stone-store"
+                  className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
+                >
+                  Kamenná pobočka
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="text-center md:text-center mb-8 md:mb-0">
+            <h3 className="text-xl font-semibold uppercase tracking-wide">
+              SLUŽBY{" "}
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <a
+                  href="/shipping-payment"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
                   Doprava a Platba
@@ -91,7 +114,23 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/refund"
+                  className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
+                >
+                  Reklamace a vrácení
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
+                >
+                  Ochrana soukromí
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
                   Obchodní podmínky
@@ -105,8 +144,20 @@ export default function Footer() {
               Kontakt
             </h3>
             <p className="mt-1 text-sm ">Malá Strana, 118 00 Praha 1</p>
-            <p className="text-sm ">support@snith.cz</p>
+           
             <p className="text-sm ">+420 999 999 999</p>
+
+            <div className="m -mb-3">
+              <a
+                href="mailto:support@snith.cz?subject=Support"
+                className="inline-block"
+              >
+<button className="px-2 py-1 bg-transparent border-2 border-white text-white font-semibold rounded-md hover:bg-secondary hover:text-white transition duration-300 cursor-pointer ">
+  Napsat e-mail
+</button>
+              </a>
+            </div>
+
             <div className="flex justify-center md:justify-end space-x-4 mt-6 ">
               <a
                 href="https://www.facebook.com/"

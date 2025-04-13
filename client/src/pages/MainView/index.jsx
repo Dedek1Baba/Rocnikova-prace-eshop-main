@@ -57,9 +57,10 @@ export default function MainView() {
     }
   };
   
+
   useEffect(() => {
     load();
-  }, []);
+  }, [id]);
  
   if (isLoaded === null) {
     return (
@@ -120,7 +121,6 @@ export default function MainView() {
                 </span>
                 </p>
             </div>
- 
  
  
  

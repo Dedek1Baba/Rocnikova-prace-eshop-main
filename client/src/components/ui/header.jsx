@@ -34,7 +34,7 @@ const MenuPages = [
 
   { id: 2, name: "Products", link: "/products", icon: Shirt },
 
-  { id: 3, name: "O Nás", link: "/aboutus", icon: BookOpen },
+  { id: 3, name: "Mindset", link: "/mindset", icon: BookOpen },
 ];
 
 const UserMenuPages = [
@@ -144,19 +144,20 @@ export default function Header() {
             </div>
 
             <div className="relative">
-              <Button
-                className="-ml-3 bg-gradient-to-br from-primary to-secondary transition-all hover:text-secondary duration-200 text-white rounded-full"
+              <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
+                className="p-1.5 relative hover:scale-[1.05] transition-transform duration-200 ease-linear focus-visible:outline-none rounded-full text-white ml-[-14px]"
               >
-                <User />
-              </Button>
+                <User size={23} />
+              </button>
+
               {userMenuOpen && (
                 <div className="absolute right-0 mt-8 w-40 shadow-lg border rounded-[15px] font-medium overflow-hidden">
                   {UserMenuPages.map((data) => (
                     <a
                       key={data.id}
                       href={data.link}
-                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black"
+                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black text-white"
                       style={data.style}
                     >
                       <data.icon className="w-5 h-5" style={data.style} />
@@ -168,9 +169,7 @@ export default function Header() {
             </div>
           </div>
 
-
           <div className="flex items-center gap-3 lg:hidden">
-     
             <button
               onClick={() => {
                 setIsOpen(true);
@@ -201,10 +200,12 @@ export default function Header() {
                 <a
                   key={data.id}
                   href={data.link}
-                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black"
+                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black text-white"
                 >
                   <data.icon className="w-5 h-5 text-white group-hover:text-black" />
-                  <span className=" font-medium group-hover:text-black">{data.name}</span>
+                  <span className=" font-medium group-hover:text-black">
+                    {data.name}
+                  </span>
                 </a>
               ))}
               <hr className="border-t border-gray-300 w-full my-0" />
@@ -212,7 +213,7 @@ export default function Header() {
                 <a
                   key={data.id}
                   href={data.link}
-                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer "
+                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer text-white"
                 >
                   <data.icon
                     className="w-5 h-5 text-white group-hover:text-black"
