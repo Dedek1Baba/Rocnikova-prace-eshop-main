@@ -27,7 +27,7 @@ export default function SaleInfo() {
     },
     {
       event: "Black Friday",
-      date: ".4.2025 - 29.11.2025",
+      date: "4.2025 - 29.11.2025",
     },
     {
       event: "Nový rok",

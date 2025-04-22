@@ -25,7 +25,7 @@ export default function AboutUs() {
       <div className="container mx-auto max-w-7xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-6 sm:p-12 mt-12 mb-12">
     
       <section className="text-center space-y-6 mb-16" data-aos="zoom-in">
-          <h1 className="text-6xl font-extrabold tracking-tight drop-shadow-lg text-gray-100">- Snith Vision -</h1>
+          <h1 className="text-6xl font-extrabold tracking-tight drop-shadow-lg text-gray-100">Snith Vision </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Vstup do světa Snith – streetwearu, kde se potkává estetika s energií města. Tvoříme styl, který má význam. Nezapomeň, že Snith není jen značka, ale je to mindset.
           </p>

@@ -44,7 +44,7 @@ const UserMenuPages = [
     id: "sleva",
     name: "Slevové kódy",
     icon: BadgePercent,
-    link: "/slevove-kody",
+    link: "/discounts",
   },
 
   { id: "settings", name: "Nastavení", icon: Settings, link: "/settings" },

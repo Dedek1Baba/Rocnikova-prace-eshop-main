@@ -7,10 +7,17 @@ import Faq from "./Footer/faq";
 import Store from "./Footer/stone";
 import Dis from "./Footer/discounts";
 import Sizes from "./Footer/sizes";
+import Socials from "./Footer/socials";
+
+import Ship from "./Footer/sluzby1";
+import Refundace from "./Footer/sluzby2";
+import Ochrana from "./Footer/sluzby3";
+import Podminky from "./Footer/sluzby4";
 
 import Cart from "./Cart";
 
 import Admin from "./Admin";
+
 
 import OneP from "./OneP";
 import CreateOneP from "./OnePCreateForm";
@@ -21,7 +28,7 @@ import CreatedOneP from "./OnePCreateForm/CreatedOneP";
 
 import Create from "./ClothingCreateForm";
 import Clothing from "./ClothingList";
-import MindsetList from "./MindsetList";
+import MindsetList from "./Mindset/index";
 import Update from "./ClothingUpdateForm";
 import ClothingView from "./ClothingView";
 import Product from "./MainView";
@@ -41,6 +48,10 @@ export default function AppRoutes() {
           <Route path="/stone-store" element={<Store />} />
           <Route path="/discounts" element={<Dis />} />
           <Route path="/sizes" element={<Sizes />} />
+          <Route path="/shipping-payment" element={<Ship />} />
+          <Route path="/refund" element={<Refundace />} />
+          <Route path="/privacy-policy" element={<Ochrana />} />
+          <Route path="/terms" element={<Podminky />} />
 
           <Route path="/createproduct" element={<CreateOneP />} />
           <Route path="/updateonep/:id" element={<UpdateOneP />} />
@@ -50,6 +61,7 @@ export default function AppRoutes() {
 
 
           <Route path="/admin" element={<Admin />} />
+          <Route path="/socials" element={<Socials />} />
           <Route path="/oneproductpanel" element={<OneP />} />
           <Route path="/createclothing" element={<Create />} />
           <Route path="/clothing" element={<Clothing />} />

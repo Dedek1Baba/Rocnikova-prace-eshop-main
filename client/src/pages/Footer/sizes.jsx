@@ -59,16 +59,13 @@ export default function Sizes() {
     fontWeight: 'bold',
   };
 
-  const namesStyle = {
-    color: 'white',
-    fontWeight: 'semibold',
-  };
-
   return (
     <>
-      <Header />
+      <Header />      
+      <div className="container mx-auto max-w-5xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-6 sm:p-12 mt-12 mb-12">
+
       <div style={containerStyle}>
-        <h1 style={namesStyle} >Velikosti Produktů</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center text-gray-100">Velikosti Produktů</h1>
 
         <div style={productStyle}>
           <div style={imageStyle}>
@@ -78,9 +75,11 @@ export default function Sizes() {
               }} />
           </div>
           <div style={detailsStyle}>
-            <h3 style={namesStyle}>Trička</h3>
             <table style={tableStyle}>
               <thead>
+                  <tr>
+                  <th style={thStyle} colSpan="3">Trička</th>
+                </tr>
                 <tr>
                   <th style={thStyle}>Velikost</th>
                   <th style={thStyle}>Šířka (cm)</th>
@@ -120,9 +119,11 @@ export default function Sizes() {
             filter: "drop-shadow(0 0 10px white)"
           }} />          </div>
           <div style={detailsStyle}>
-            <h3 style={namesStyle} >Mikiny</h3>
             <table style={tableStyle}>
               <thead>
+              <tr>
+                  <th style={thStyle} colSpan="3">Mikiny</th>
+                </tr>
                 <tr>
                   <th style={thStyle}>Velikost</th>
                   <th style={thStyle}>Šířka (cm)</th>
@@ -162,9 +163,12 @@ export default function Sizes() {
             filter: "drop-shadow(0 0 10px white)"
           }} />          </div>
           <div style={detailsStyle}>
-            <h3 style={namesStyle}>Tepláky</h3>
+           
             <table style={tableStyle}>
               <thead>
+              <tr>
+                  <th style={thStyle} colSpan="3">Tepláky</th>
+                </tr>
                 <tr>
                   <th style={thStyle}>Velikost</th>
                   <th style={thStyle}>Pas (cm)</th>
@@ -204,9 +208,12 @@ export default function Sizes() {
             filter: "drop-shadow(0 0 10px white)"
           }} />          </div>
           <div style={detailsStyle}>
-            <h3 style={namesStyle}>Šperky</h3>
+
             <table style={tableStyle}>
               <thead>
+              <tr>
+                  <th style={thStyle} colSpan="2">Šperky</th>
+                </tr>
                 <tr>
                   <th style={thStyle}>Velikost</th>
                   <th style={thStyle}>Popis</th>
@@ -221,7 +228,7 @@ export default function Sizes() {
             </table>
           </div>
         </div>
-      </div>
+      </div>   </div>
       <Footer />
       <ScrollToTop />
     </>

@@ -66,10 +66,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="/blog"
+                  href="/socials"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
-                  Blog
+                  Socials
                 </a>
               </li>
               <li>
