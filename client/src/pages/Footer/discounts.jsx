@@ -60,14 +60,14 @@ export default function SaleInfo() {
         </h1>
         <div className="space-y-8 text-center   ">
           {saleTimes.map((item, index) => (
-            <div key={index} className="  rounded-xl shadow-md">
+            <div key={index} className="  rounded-xl shadow-md" data-aos="fade-up">
               <h2 className="text-2xl font-semibold text-gray-100 mb-2">{item.event}</h2>
               <p className="text-gray-300 mb-2">Datum: {item.date}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex items-center justify-center text-center px-6 pt-[50px]">
+        <div className="flex items-center justify-center text-center px-6 pt-[50px]" data-aos="fade-up">
           <Toaster position="bottom-right" theme="light" richColors className="!bg-black !text-white" />
           <div>
             <h1 className="text-4xl md:text-4xl font-extrabold text-white uppercase leading-none" data-aos="fade-up">

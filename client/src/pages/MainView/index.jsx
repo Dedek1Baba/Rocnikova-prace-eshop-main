@@ -28,6 +28,25 @@ export default function MainView() {
       setQuantity((prev) => prev - 1);
     }
   };
+
+  const addItemToCart = () => {
+    var cart = JSON.parse(localStorage.getItem("cart"));
+    var cartTemp = [];
+    const cartObject = {
+      productId: id,
+      quantity: quantity
+    }
+    if (!cart) {
+      cartTemp.push(cartObject);
+      localStorage.setItem("cart", JSON.stringify(cartTemp))
+    } else {
+      console.log(cart)
+      cartTemp.push(cart);
+      cartTemp.push(cartObject);
+      localStorage.setItem("cart", JSON.stringify(cartTemp))
+    }
+      
+  }
  
   const load = async () => {
     const data = await getClothingById(id);
@@ -156,7 +175,7 @@ export default function MainView() {
             </div>
             
             <div className="flex flex-col gap-3 mt-5">
-  <button className="bg-white text-black font-bold py-3 rounded-xl hover:bg-gray-300 transition-all">
+  <button onClick={addItemToCart} className="bg-white text-black font-bold py-3 rounded-xl hover:bg-gray-300 transition-all">
     Přidat do košíku
   </button>
   <button className="bg-purple-600 text-white font-bold py-2 rounded-xl hover:bg-purple-700 transition-all flex items-center justify-center">
@@ -180,7 +199,7 @@ export default function MainView() {
  
               <p><b>• Materiál:</b>  {clothing.material}</p>
               <p><b>• Gramáž:</b> {clothing.gram}G</p>
-              <p><b>• Doba dodání:</b> {clothing.delivery} dny</p>
+              <p><b>• Doba dodání: </b>1- {clothing.delivery} dny</p>
  
               <p className="pt-2 font-bold">Návod k praní:</p>
  

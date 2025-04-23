@@ -4,9 +4,8 @@ import Footer from "@/components/ui/footer";
 import ScrollToTop from "@/components/ui/nahoru";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Toaster } from "sonner";
+import { Toaster, toast } from "sonner";
 import { Instagram, Facebook, Youtube } from "lucide-react";
-
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -27,17 +26,18 @@ export default function MindsetPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Odesláno:", formData.email);
+    toast.success("Děkujeme za připojení! 🎉");
+    setFormData({ email: "" });
   };
 
   return (
     <div className="min-h-screen">
       <Header />
 
-      <div className="container mx-auto max-w-7xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-6 sm:p-12 mt-12 mb-12">
+      <div className="container mx-auto max-w-6xl border rounded-3xl p-6 md:p-12 mt-12 mb-12 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)]" data-aos="fade-up">
         <section className="text-center mb-16" data-aos="zoom-in">
           <h1 className="text-6xl font-extrabold tracking-tight drop-shadow-lg text-gray-100">
-            Mindset je klíč 
+            Mindset je klíč
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto mt-6">
             Tvůj přístup určuje tvůj směr. Mindset není jen o myšlení, je to styl života. Se správnou mentalitou neexistují překážky, jen výzvy.
@@ -82,40 +82,38 @@ export default function MindsetPage() {
               Poslat
             </Button>
           </form>
-
-          <Toaster
-            position="bottom-right"
-            theme="light"
-            richColors
-            className="bg-black text-white"
-          />
         </section>
-      
 
-            
-      <section className="text-center mb-10" data-aos="fade-up">
+        <section className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-4xl font-semibold mb-4 text-gray-300">Kde nás najdete?</h2>
           <p className="text-xl text-white mx-auto max-w-4xl">
-            Naše produkty si můžete zakoupit online na našem e-shopu, kde nabízíme naši limitovanou kolekci. Dále máme soicální síťě jako například Instagram, YouTube a Facebook.
+            Naše produkty si můžete zakoupit online na našem e-shopu, kde nabízíme naši limitovanou kolekci. Dále máme sociální sítě jako například Instagram, YouTube a Facebook.
           </p>
         </section>
         <section className="text-center" data-aos="fade-up">
-  
-        <div className="flex justify-center space-x-4 mt-6 text-white">
-              <a href="https://www.facebook.com/" className=" hover:text-secondary transition duration-300 ">
-                <Facebook size={28} className="cursor-pointer"/>
-              </a>
-              <a href="https://www.instagram.com/" className=" hover:text-secondary transition duration-300 ">
-                <Instagram size={28} className="cursor-pointer"/>
-              </a>
-              <a href="https://www.youtube.com/" className=" hover:text-secondary transition duration-300">
-                <Youtube size={28} className="cursor-pointer"/>
-              </a>
-            </div>
+          <div className="flex justify-center space-x-4 mt-6 text-white">
+            <a href="https://www.facebook.com/" className="hover:text-secondary transition duration-300">
+              <Facebook size={28} className="cursor-pointer" />
+            </a>
+            <a href="https://www.instagram.com/" className="hover:text-secondary transition duration-300">
+              <Instagram size={28} className="cursor-pointer" />
+            </a>
+            <a href="https://www.youtube.com/" className="hover:text-secondary transition duration-300">
+              <Youtube size={28} className="cursor-pointer" />
+            </a>
+          </div>
         </section>
-        </div>
+      </div>
+
       <Footer />
       <ScrollToTop />
+
+      <Toaster
+        position="bottom-right"
+        theme="light"
+        richColors
+        className="bg-black text-white fixed bottom-5 right-5 z-50"
+      />
     </div>
   );
 }
