@@ -2,7 +2,14 @@ const Clothing = require("../models/clothing");
 
 exports.getAllClothing = async (req, res, next) => {
   try {
-    const data = await Clothing.find();
+    let queryName = req.query.name;
+
+    let data;
+    if (queryName) 
+      data = await Clothing.find({name: queryName});
+    else 
+      data = await Clothing.find();
+
     if (data && data.length !== 0) {
       return res.status(200).send({
         message: "Clothing found",

@@ -53,14 +53,14 @@ export default function SaleInfo() {
 
   return (
     <div className="min-h-screen text-white">
-           <Header />
+      <Header />
       <div className="max-w-5xl mx-auto mt-12 mb-12 p-6 sm:p-12 border backdrop-blur-sm shadow-lg rounded-3xl">
         <h1 className="text-5xl font-extrabold text-center text-gray-300 mb-10 pb-4 border-b-2 border-gray-300" data-aos="fade-up">
           Kdy většinou dáváme slevy?
         </h1>
-        <div className="space-y-8 text-center   ">
+        <div className="space-y-8 text-center">
           {saleTimes.map((item, index) => (
-            <div key={index} className="  rounded-xl shadow-md" data-aos="fade-up">
+            <div key={index} className="rounded-xl shadow-md" data-aos="fade-up">
               <h2 className="text-2xl font-semibold text-gray-100 mb-2">{item.event}</h2>
               <p className="text-gray-300 mb-2">Datum: {item.date}</p>
             </div>
@@ -68,7 +68,6 @@ export default function SaleInfo() {
         </div>
 
         <div className="flex items-center justify-center text-center px-6 pt-[50px]" data-aos="fade-up">
-          <Toaster position="bottom-right" theme="light" richColors className="!bg-black !text-white" />
           <div>
             <h1 className="text-4xl md:text-4xl font-extrabold text-white uppercase leading-none" data-aos="fade-up">
               Chcete slevu??
@@ -95,9 +94,17 @@ export default function SaleInfo() {
             </form>
           </div>
         </div>
-      </div><Footer />
+      </div>
+
+      <Toaster 
+        position="bottom-right" 
+        theme="light" 
+        richColors 
+        className="!bg-black !text-white fixed bottom-4 right-4 z-50"
+      />
+
+      <Footer />
       <ScrollToTop />
     </div>
-       
   );
 }

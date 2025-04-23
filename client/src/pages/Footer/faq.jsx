@@ -28,7 +28,7 @@ export default function FAQ() {
     {
       question: "Jak dlouho trvá doručení objednávky?",
       answer:
-        "Doručení v ČR trvá 3–5 pracovních dnů. Mezinárodní objednávky mohou trvat 7–14 dní.",
+        "Doručení v ČR trvá 1-3 pracovních dnů. Mezinárodní objednávky mohou trvat 7–14 dní.",
     },
     {
       question: "Mohu vrátit nebo vyměnit produkt?",
@@ -63,7 +63,7 @@ export default function FAQ() {
     {
       question: "Mohu zakoupit dárkový poukaz?",
       answer:
-        "Ano, nabízíme dárkové poukazy, které si můžete zakoupit přímo na našem e-shopu.",
+        "Ne, máme pouze limitované slevy.",
     },
   ];
 
@@ -81,14 +81,14 @@ export default function FAQ() {
           {faqData.map((item, index) => (
             <AccordionItem key={index} value={`item-${index}`}>
               
-              <div className="p-4 mb-4 bg-gray-500 rounded-xl">
-                <h2 className="text-xl font-semibold text-gray-100">
+              <div className="p-4 mb-4 bg-gray-200 rounded-xl">
+                <h2 className="text-xl font-semibold text-black">
                   {item.question}
                 </h2>
 
                 <div className="pt-2 pl-4">
                   <ul className="list-disc pl-5">
-                    <li className="text-gray-300">
+                    <li className="text-gray-800">
                       {item.answer}
                       </li>
                   </ul>

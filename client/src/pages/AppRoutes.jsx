@@ -14,9 +14,10 @@ import Refundace from "./Footer/sluzby2";
 import Ochrana from "./Footer/sluzby3";
 import Podminky from "./Footer/sluzby4";
 
-import Cart from "./Cart";
+import Checkout from "./Checkout";
 
 import Admin from "./Admin";
+import Success from "./Checkout/success";
 
 
 import OneP from "./OneP";
@@ -43,7 +44,7 @@ export default function AppRoutes() {
           <Route path="/" element={<Home />} />
      
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/stone-store" element={<Store />} />
           <Route path="/discounts" element={<Dis />} />
@@ -58,6 +59,7 @@ export default function AppRoutes() {
           <Route path="/onep/:id" element={<OnePView />} />
           <Route path="/onep" element={<OnePList />} />
           <Route path="/created-onep/:id" element={<CreatedOneP />} />
+          <Route path="/order-success" element={<Success />} />
 
 
           <Route path="/admin" element={<Admin />} />

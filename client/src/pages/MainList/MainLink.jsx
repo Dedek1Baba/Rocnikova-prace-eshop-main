@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function MainLink(props) {
-  
- 
-
   return (
     <>
       <Link
@@ -13,7 +10,7 @@ export default function MainLink(props) {
         <img
           src={props.image}
           alt={props.name}
-          className="w-full sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] xl:max-w-[350px] object-cover mb-2"
+          className="w-[380px] h-[400px] object-cover mb-2 rounded-lg"
           style={{ filter: "drop-shadow(0 0 10px white)" }}
         />
         <h2 className="text-center text-lg font-semibold mb-1">{props.name}</h2>

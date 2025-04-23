@@ -4,6 +4,7 @@ import { Button } from "./button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Logo from "../../assets/animace.logo.gif";
+import CartBox from "./cartbox";
 import {
   Search,
   X,
@@ -17,7 +18,6 @@ import {
   House,
   Shirt,
   BookOpen,
-  ShoppingBasket,
 } from "lucide-react";
 
 import {
@@ -31,24 +31,14 @@ import {
 
 const MenuPages = [
   { id: 1, name: "Home", link: "/", icon: House },
-
   { id: 2, name: "Products", link: "/products", icon: Shirt },
-
   { id: 3, name: "Mindset", link: "/mindset", icon: BookOpen },
 ];
 
 const UserMenuPages = [
   { id: "profil", name: "Profil", icon: User, link: "/profil" },
-
-  {
-    id: "sleva",
-    name: "Slevové kódy",
-    icon: BadgePercent,
-    link: "/discounts",
-  },
-
+  { id: "sleva", name: "Slevové kódy", icon: BadgePercent, link: "/discounts" },
   { id: "settings", name: "Nastavení", icon: Settings, link: "/settings" },
-
   {
     id: "logout",
     name: "Odhlásit se",
@@ -63,24 +53,39 @@ export default function Header() {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setCartOpen(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    try {
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch {
+      return [];
     }
-  }, [isOpen]);
+  });
+
+  const handleRemoveFromCart = (productId) => {
+    const updatedCart = cart.filter((item) => item.productId !== productId);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    const updatedCart = cart.map((item) =>
+      item.productId === productId ? { ...item, quantity: newQuantity } : item
+    );
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const toggleCart = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    try {
+      setCart(storedCart ? JSON.parse(storedCart) : []);
+    } catch {
+      setCart([]);
+    }
+  }, []);
 
   return (
     <>
@@ -136,9 +141,11 @@ export default function Header() {
                 }}
                 className="p-1.5 -ml-3 relative hover:scale-[1.05] transition-transform duration-200 ease-linear focus-visible:outline-none rounded-full text-white"
               >
-                <div className="absolute right-0 top-1 translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 hover:bg-gray-300 transition-all text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-sm">
-                  0
-                </div>
+                {cart.length > 0 && (
+                  <div className="absolute right-0 top-1 translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-500 to-purple-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-sm">
+                    {cart.reduce((acc, item) => acc + item.quantity, 0)}
+                  </div>
+                )}
                 <ShoppingCart size={23} />
               </button>
             </div>
@@ -178,9 +185,11 @@ export default function Header() {
               className="p-2 relative hover:scale-[1.05] transition-transform duration-200 ease-linear focus-visible:outline-none rounded-full text-white"
             >
               <ShoppingCart size={22} />
-              <div className="absolute right-0 top-1 translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 hover:bg-gray-300 transition-all text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-sm">
-                0
-              </div>
+              {cart.length > 0 && (
+                <div className="absolute right-0 top-1 translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-500 to-purple-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-sm">
+                  {cart.reduce((acc, item) => acc + item.quantity, 0)}
+                </div>
+              )}
             </button>
 
             <button
@@ -232,31 +241,57 @@ export default function Header() {
 
           {isOpen && (
             <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex justify-end">
-              <div
-                className="absolute inset-0"
-                onClick={() => setIsOpen(false)}
-              ></div>
-              <div className="relative w-96 h-screen bg-black text-white p-6 shadow-lg flex flex-col items-center text-center cart-container">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 text-white hover:text-gray-400"
-                >
-                  <X size={24} />
-                </button>
-                <div className="mt-16 flex flex-col items-center">
-                  <h2 className="text-2xl font-bold mb-6">
-                    Your cart is empty
-                  </h2>
-                  <button className="w-4/5 py-3 bg-white text-black font-semibold rounded-md mb-4">
-                    <Link to="/cart">CONTINUE SHOPPING</Link>
+              <div className="absolute inset-0" onClick={toggleCart}></div>
+
+              <div className="relative w-[500px] h-screen bg-black text-white shadow-lg text-center cart-container flex flex-col">
+                <div className="flex-1 overflow-y-auto p-6">
+                  <button
+                    onClick={toggleCart}
+                    className="absolute top-4 right-8 text-white hover:text-gray-400"
+                  >
+                    <X size={24} />
                   </button>
-                  <p className="text-sm">
-                    Have an account?{" "}
-                    <a href="/login" className="text-white underline">
-                      Log in
-                    </a>{" "}
-                    to check out faster.
-                  </p>
+
+                  {Array.isArray(cart) && cart.length > 0 ? (
+                    <>
+                      {cart.map((item) => (
+                        <CartBox
+                          key={item.productId}
+                          productId={item.productId}
+                          name={item.name}
+                          quantity={item.quantity}
+                          price={item.price}
+                          size={item.size}
+                          image={item.image}
+                          onRemove={handleRemoveFromCart}
+                          onUpdateQuantity={handleUpdateQuantity}
+                        />
+                      ))}
+                      <Link to="/checkout">
+                        <button className="bg-white text-black font-bold py-3 mt-4 rounded-xl hover:bg-gray-300 transition-all w-full">
+                          Pokračovat k pokladně
+                        </button>
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <div className="mt-16 flex flex-col items-center">
+                        <h2 className="text-2xl font-bold mb-6">
+                          Košík je prázdný
+                        </h2>
+                        <button className="w-4/5 py-3 bg-white text-black font-semibold rounded-md mb-4">
+                          <Link to="/cart">Pokračovat v nákupu</Link>
+                        </button>
+                        <p className="text-sm">
+                          Máte účet?{" "}
+                          <a href="/login" className="text-white underline">
+                            Přihlaste se
+                          </a>{" "}
+                          pro rychlejší nákup.
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
