@@ -41,7 +41,7 @@ export default function cardproduct() {
   return (
       <div className=" p-12 text-center text-white">
           <h2 className="text-4xl font-semibold mb-6 uppercase tracking-wide" data-aos="fade-up">
-            Nejoblíbenější produkty
+            naše produkty
           </h2>  
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
             {products.map((product, index) => (

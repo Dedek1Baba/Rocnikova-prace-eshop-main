@@ -88,7 +88,7 @@ export default function Mainpage() {
               Vyrobeno z nejkvalitnějších materiálů, perfektní pro každodenní nošení.
             </motion.p>
 
-            <a href="/hoodie">
+            <a href="/product/67dc0284f85664e01df36310">
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}

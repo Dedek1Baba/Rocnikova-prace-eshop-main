@@ -262,6 +262,7 @@ export default function Header() {
                           quantity={item.quantity}
                           price={item.price}
                           size={item.size}
+                          color={item.color}
                           image={item.image}
                           onRemove={handleRemoveFromCart}
                           onUpdateQuantity={handleUpdateQuantity}

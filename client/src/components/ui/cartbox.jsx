@@ -48,6 +48,7 @@ export default function CartBox(props) {
         <div className="text-xl">{clothing.name}</div>
         <div>{clothing.price * props.quantity} Kč</div>
         <div>{props.size}</div>
+        <div>{props.color}</div>
       </div>
 
       <div className="flex items-center gap-2">

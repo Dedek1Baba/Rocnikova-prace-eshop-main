@@ -15,6 +15,7 @@ export default function MainView() {
   const [isLoaded, setLoaded] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState();
+  const [selectedColor, setSelectedColor] = useState();
   const navigate = useNavigate();
 
   const handleIncrease = () => {
@@ -28,24 +29,19 @@ export default function MainView() {
   };
 
   const addItemToCart = () => {
-    var cart = JSON.parse(localStorage.getItem("cart"));
-    var cartTemp = [];
+    if (!selectedSize) return alert("Zvolte prosím velikost");
+    if (!selectedColor) return alert("Zvolte prosím barvu");
+
+    var cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartObject = {
       productId: id,
       quantity: quantity,
       size: selectedSize,
+      color: selectedColor,
     };
 
-    if (!selectedSize) return alert("Zvolte prosím velikost");
-
-    if (!cart) {
-      cartTemp.push(cartObject);
-      localStorage.setItem("cart", JSON.stringify(cartTemp));
-    } else {
-      cart.push(cartObject);
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-
+    cart.push(cartObject);
+    localStorage.setItem("cart", JSON.stringify(cart));
     toast.success("Přidáno do košíku");
   };
 
@@ -78,6 +74,8 @@ export default function MainView() {
     );
   }
 
+  const availableColors = ["Růžová", "Černá", "Šedá"];
+
   return (
     <>
       <div className={css}></div>
@@ -109,10 +107,7 @@ export default function MainView() {
             <h1 className="text-4xl font-bold uppercase mt-1">{clothing.name}</h1>
 
             <div className="text-lg space-y-2">
-              <p>
-                <span className="font-semibold">Barva: </span>
-                {clothing.color}
-              </p>
+             
               <p>
                 <span className="font-semibold">Cena: </span>
                 <span className="line-through text-gray-400 mr-2">2.590 Kč</span>
@@ -124,6 +119,24 @@ export default function MainView() {
             </div>
 
             <div>
+              <p className="font-semibold mb-2">Vyber barvu:</p>
+              <div className="flex gap-2 font-semibold">
+                {availableColors.map((color) => (
+                  <button
+                    key={color}
+                    onClick={() => setSelectedColor(color)}
+                    className={cn(
+                      "border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all",
+                      selectedColor === color ? "bg-white text-black" : ""
+                    )}
+                  >
+                    {color}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
               <p className="font-semibold mb-2">Velikost:</p>
               <div className="flex gap-2 font-semibold">
                 {["XS", "S", "M", "L", "XL"].map((size) => (
@@ -132,9 +145,7 @@ export default function MainView() {
                     onClick={() => setSelectedSize(size)}
                     className={cn(
                       "border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all",
-                      selectedSize && selectedSize === size
-                        ? "bg-white text-black"
-                        : ""
+                      selectedSize === size ? "bg-white text-black" : ""
                     )}
                   >
                     {size}
@@ -165,17 +176,8 @@ export default function MainView() {
               >
                 Přidat do košíku
               </button>
-              <button className="bg-purple-600 text-white font-bold py-2 rounded-xl hover:bg-purple-700 transition-all flex items-center justify-center">
-                Koupit přes
-                <img
-                  src={StripeLogo}
-                  alt="Stripe logo"
-                  className="w-12 h-7 ml-1 mt-1"
-                />
-              </button>
-              <p className="text-sm text-gray-400 text-center">
-                Přes Stripe, můžete koupit produkt hned z jednoho kliknutí.
-              </p>
+             
+             
             </div>
 
             <div className="text-sm text-gray-300 mt-2 space-y-2">
@@ -186,11 +188,10 @@ export default function MainView() {
                 <b>• Gramáž:</b> {clothing.gram}G
               </p>
               <p>
-                <b>• Doba dodání: </b>1- {clothing.delivery} dny
+                <b>• Doba dodání: </b>1–{clothing.delivery} dny
               </p>
 
               <p className="pt-2 font-bold">Návod k praní:</p>
-
               <p>
                 Perte maximálně na 30 °C. Před praním otočte oblečení naruby.
                 Pokud budete dodržovat tento postup, produkt nebude nijak
