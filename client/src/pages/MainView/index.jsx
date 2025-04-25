@@ -32,7 +32,8 @@ export default function MainView() {
     if (!selectedSize) return alert("Zvolte prosím velikost");
     if (!selectedColor) return alert("Zvolte prosím barvu");
 
-    var cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
     const cartObject = {
       productId: id,
       quantity: quantity,
@@ -40,10 +41,38 @@ export default function MainView() {
       color: selectedColor,
     };
 
-    cart.push(cartObject);
+    const existingProductIndex = cart.findIndex(item => 
+      item.productId === cartObject.productId && 
+      item.size === cartObject.size && 
+      item.color === cartObject.color
+    );
+
+    if (existingProductIndex !== -1) {
+
+      const existingProduct = cart[existingProductIndex];
+      const updatedQuantity = existingProduct.quantity + quantity;
+
+      if (updatedQuantity > clothing.amount) {
+        return toast("Více položek přidat nemůžete", {
+          action: {
+            label: <X />,
+          },
+        });
+      }
+
+      cart[existingProductIndex].quantity = updatedQuantity;
+    } else {
+
+      cart.push(cartObject);
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
+
     toast.success("Přidáno do košíku");
   };
+
+
+  
 
   const load = async () => {
     const data = await getClothingById(id);
@@ -107,7 +136,6 @@ export default function MainView() {
             <h1 className="text-4xl font-bold uppercase mt-1">{clothing.name}</h1>
 
             <div className="text-lg space-y-2">
-             
               <p>
                 <span className="font-semibold">Cena: </span>
                 <span className="line-through text-gray-400 mr-2">2.590 Kč</span>
@@ -176,8 +204,6 @@ export default function MainView() {
               >
                 Přidat do košíku
               </button>
-             
-             
             </div>
 
             <div className="text-sm text-gray-300 mt-2 space-y-2">

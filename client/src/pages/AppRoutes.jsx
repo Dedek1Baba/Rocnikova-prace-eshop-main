@@ -59,7 +59,7 @@ export default function AppRoutes() {
           <Route path="/onep/:id" element={<OnePView />} />
           <Route path="/onep" element={<OnePList />} />
           <Route path="/created-onep/:id" element={<CreatedOneP />} />
-          <Route path="/order-success" element={<Success />} />
+          <Route path="/completion" element={<Success />} />
 
 
           <Route path="/admin" element={<Admin />} />

@@ -62,19 +62,33 @@ export default function Header() {
     }
   });
 
-  const handleRemoveFromCart = (productId) => {
-    const updatedCart = cart.filter((item) => item.productId !== productId);
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  };
-
-  const handleUpdateQuantity = (productId, newQuantity) => {
-    const updatedCart = cart.map((item) =>
-      item.productId === productId ? { ...item, quantity: newQuantity } : item
+  const handleRemoveFromCart = (productId, size, color) => {
+    const updatedCart = cart.filter(
+      (item) => !(item.productId === productId && item.size === size && item.color === color)
     );
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    window.dispatchEvent(new Event("totalItemsUpdate"));
   };
+  
+  
+
+  const handleUpdateQuantity = (productId, size, color, newQuantity) => {
+    const updatedCart = cart.map((item) =>
+      item.productId === productId && item.size === size && item.color === color
+        ? { ...item, quantity: newQuantity }
+        : item
+    );
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  
+    window.dispatchEvent(new Event("totalItemsUpdate"));
+
+    
+  };
+  
+  
 
   const toggleCart = () => setIsOpen(!isOpen);
 
@@ -150,30 +164,7 @@ export default function Header() {
               </button>
             </div>
 
-            <div className="relative">
-              <button
-                onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="p-1.5 relative hover:scale-[1.05] transition-transform duration-200 ease-linear focus-visible:outline-none rounded-full text-white ml-[-14px]"
-              >
-                <User size={23} />
-              </button>
-
-              {userMenuOpen && (
-                <div className="absolute right-0 mt-8 w-40 shadow-lg border rounded-[15px] font-medium overflow-hidden">
-                  {UserMenuPages.map((data) => (
-                    <a
-                      key={data.id}
-                      href={data.link}
-                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black text-white"
-                      style={data.style}
-                    >
-                      <data.icon className="w-5 h-5" style={data.style} />
-                      {data.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+          
           </div>
 
           <div className="flex items-center gap-3 lg:hidden">
@@ -192,53 +183,10 @@ export default function Header() {
               )}
             </button>
 
-            <button
-              className="right-4 hover:text-secondary duration-200 text-white pt-2 pb-2"
-              onClick={() => {
-                setMenuOpen(!menuOpen);
-                setIsOpen(false);
-              }}
-            >
-              <Menu size={22} />
-            </button>
+      
           </div>
 
-          {menuOpen && (
-            <div className="fixed top-24 right-3 w-[15vh]  shadow-lg border rounded-xl z-50 flex flex-col overflow-hidden lg:hidden menu-container">
-              {MenuPages.map((data) => (
-                <a
-                  key={data.id}
-                  href={data.link}
-                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer hover:text-black text-white"
-                >
-                  <data.icon className="w-5 h-5 text-white group-hover:text-black" />
-                  <span className=" font-medium group-hover:text-black">
-                    {data.name}
-                  </span>
-                </a>
-              ))}
-              <hr className="border-t border-gray-300 w-full my-0" />
-              {UserMenuPages.map((data) => (
-                <a
-                  key={data.id}
-                  href={data.link}
-                  className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-300 cursor-pointer text-white"
-                >
-                  <data.icon
-                    className="w-5 h-5 text-white group-hover:text-black"
-                    style={data.style}
-                  />
-                  <span
-                    className="font-medium group-hover:text-black"
-                    style={data.style}
-                  >
-                    {data.name}
-                  </span>
-                </a>
-              ))}
-            </div>
-          )}
-
+          
           {isOpen && (
             <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex justify-end">
               <div className="absolute inset-0" onClick={toggleCart}></div>
@@ -255,18 +203,19 @@ export default function Header() {
                   {Array.isArray(cart) && cart.length > 0 ? (
                     <>
                       {cart.map((item) => (
-                        <CartBox
-                          key={item.productId}
-                          productId={item.productId}
-                          name={item.name}
-                          quantity={item.quantity}
-                          price={item.price}
-                          size={item.size}
-                          color={item.color}
-                          image={item.image}
-                          onRemove={handleRemoveFromCart}
-                          onUpdateQuantity={handleUpdateQuantity}
-                        />
+                     <CartBox
+                     key={item.productId}
+                     productId={item.productId}
+                     name={item.name}
+                     quantity={item.quantity}
+                     price={item.price}
+                     size={item.size}
+                     color={item.color}
+                     image={item.image}
+                     onRemove={handleRemoveFromCart}
+                     onUpdateQuantity={handleUpdateQuantity}
+                   />
+                   
                       ))}
                       <Link to="/checkout">
                         <button className="bg-white text-black font-bold py-3 mt-4 rounded-xl hover:bg-gray-300 transition-all w-full">
@@ -281,7 +230,7 @@ export default function Header() {
                           Košík je prázdný
                         </h2>
                         <button className="w-4/5 py-3 bg-white text-black font-semibold rounded-md mb-4">
-                          <Link to="/cart">Pokračovat v nákupu</Link>
+                          <Link to="/products">Ukázat produkty</Link>
                         </button>
                         <p className="text-sm">
                           Máte účet?{" "}

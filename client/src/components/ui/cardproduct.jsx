@@ -1,30 +1,30 @@
 import React, { useEffect } from "react";
 import { Button } from "./button";
 import bhoodie from "../../assets/bhoodie.png";
-import phoodie from "../../assets/phoodie.png";
-import ghoodie from "../../assets/ghoodie.png";
+import phoodie from "../../assets/bteplaky.png";
+import ghoodie from "../../assets/btilko.png";
 import { ArrowRight } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const products = [
   {
-    name: "SNITH HOODIE",
-    price: "2.000 Kč",
+    name: "SNITH MIKINA",
+    price: "1299 Kč",
     image: bhoodie,
     link: "#blackhoodie",
   },
   {
-    name: "SNITH HOODIE",
-    price: "2.000 Kč",
+    name: "SNITH TEPLÁKY",
+    price: "1099 Kč",
     image: phoodie,
-    link: "#pinkhoodie",
+    link: "/src/assets/teplaky-prednicast.png",
   },
   {
-    name: "SNITH HOODIE",
-    price: "2.000 Kč",
+    name: "SNITH TÍLKO",
+    price: "549 Kč",
     image: ghoodie,
-    link: "#grayhoodie",
+    link: "/product/6808de7aa2bc049329b79243",
   },
 ];
 

@@ -20,18 +20,20 @@ export default function CartBox(props) {
   };
 
   const handleRemove = () => {
-    props.onRemove(props.productId); 
+    props.onRemove(props.productId, props.size, props.color);
   };
-
+  
   const handleAddQuantity = () => {
-    props.onUpdateQuantity(props.productId, props.quantity + 1);
+    props.onUpdateQuantity(props.productId, props.size, props.color, props.quantity + 1); 
   };
-
+  
   const handleDecreaseQuantity = () => {
     if (props.quantity > 1) {
-      props.onUpdateQuantity(props.productId, props.quantity - 1);
+      props.onUpdateQuantity(props.productId, props.size, props.color, props.quantity - 1); 
     }
   };
+  
+  
 
   if (!isLoaded) {
     return (
@@ -43,7 +45,11 @@ export default function CartBox(props) {
 
   return (
     <div className="flex items-center justify-between gap-2 p-4 border-b">
-      <img src={clothing.image} className="w-32" alt="obrázek" />
+      <img src={clothing.image} className="w-32" alt="obrázek"  
+      draggable="false"
+      style={{
+                filter: "drop-shadow(0 0 10px white)",
+              }}/>
       <div className="flex-1">
         <div className="text-xl">{clothing.name}</div>
         <div>{clothing.price * props.quantity} Kč</div>
