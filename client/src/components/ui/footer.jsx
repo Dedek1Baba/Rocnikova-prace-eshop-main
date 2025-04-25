@@ -29,7 +29,7 @@ export default function Footer() {
                   href="/"
                   className="hover:text-secondary border-b-2 border-transparent hover:border-secondary transition duration-300 cursor-pointer"
                 >
-                  Home
+                  Domov
                 </a>
               </li>
               <li>

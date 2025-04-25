@@ -51,7 +51,7 @@ export default function Main() {
        <Header />
 
         <div className="px-12 pt-12 pb-12">  <h1 className="text-3xl font-semibold text-white text-center mb-12">
-              Naše produkty
+              NAŠE PRODUKTY
             </h1>
         
           

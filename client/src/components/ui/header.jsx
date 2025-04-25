@@ -30,8 +30,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const MenuPages = [
-  { id: 1, name: "Home", link: "/", icon: House },
-  { id: 2, name: "Products", link: "/products", icon: Shirt },
+  { id: 1, name: "Domov", link: "/", icon: House },
+  { id: 2, name: "Produkty", link: "/products", icon: Shirt },
   { id: 3, name: "Mindset", link: "/mindset", icon: BookOpen },
 ];
 
@@ -83,7 +83,7 @@ export default function Header() {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   
-    window.dispatchEvent(new Event("totalItemsUpdate"));
+    window.dispatchEvent(new Event("cartItemChanged"));
 
     
   };
@@ -93,13 +93,22 @@ export default function Header() {
   const toggleCart = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    try {
-      setCart(storedCart ? JSON.parse(storedCart) : []);
-    } catch {
-      setCart([]);
-    }
+    const handleCartUpdate = () => {
+      const storedCart = localStorage.getItem("cart");
+      try {
+        setCart(storedCart ? JSON.parse(storedCart) : []);
+      } catch {
+        setCart([]);
+      }
+    };
+  
+    window.addEventListener("cartItemChanged", handleCartUpdate);
+  
+    return () => {
+      window.removeEventListener("cartItemChanged", handleCartUpdate);
+    };
   }, []);
+  
 
   return (
     <>

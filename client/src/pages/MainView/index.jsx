@@ -33,7 +33,9 @@ export default function MainView() {
     if (!selectedColor) return alert("Zvolte prosím barvu");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
+    window.dispatchEvent(new Event("cartItemChanged"));
+
     const cartObject = {
       productId: id,
       quantity: quantity,
@@ -69,6 +71,8 @@ export default function MainView() {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     toast.success("Přidáno do košíku");
+
+    window.dispatchEvent(new Event("cartItemChanged"));
   };
 
 
@@ -138,7 +142,7 @@ export default function MainView() {
             <div className="text-lg space-y-2">
               <p>
                 <span className="font-semibold">Cena: </span>
-                <span className="line-through text-gray-400 mr-2">2.590 Kč</span>
+                <span className="line-through text-gray-400 mr-2">1599 Kč</span>
                 <span className="font-bold">{clothing.price} Kč</span>
                 <span className="bg-white text-black text-sm font-bold px-3 py-1 rounded-full ml-2">
                   Sale
