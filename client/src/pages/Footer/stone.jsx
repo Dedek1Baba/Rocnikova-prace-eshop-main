@@ -40,8 +40,9 @@ export default function LocationsPage() {
     <div className="min-h-screen">
       <Header />
 
-      <div className="container mx-auto max-w-4xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.5)] rounded-3xl p-6 sm:p-12 mt-12 mb-12">
-        <section className="text-center mb-10" data-aos="zoom-in">
+
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
+        <div className="max-w-5xl mx-auto mt-12 mb-12 p-6 sm:p-10 md:p-12 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl border border-white">        <section className="text-center mb-10" data-aos="zoom-in">
           <h1 className="text-5xl font-extrabold tracking-tight drop-shadow text-white">
             Naše Pobočky
           </h1>
@@ -84,6 +85,7 @@ export default function LocationsPage() {
             </div>
           ))}
         </section>
+      </div>
       </div>
 
       <Footer />

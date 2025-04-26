@@ -34,8 +34,9 @@ export default function MindsetPage() {
     <div className="min-h-screen">
       <Header />
 
-      <div className="container mx-auto max-w-6xl border rounded-3xl p-6 md:p-12 mt-12 mb-12 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)]" data-aos="fade-up">
-        <section className="text-center mb-16" data-aos="zoom-in">
+
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
+        <div className="max-w-5xl mx-auto mt-12 mb-12 p-6 sm:p-10 md:p-12 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl border border-white">        <section className="text-center mb-16" data-aos="zoom-in">
           <h1 className="text-6xl font-extrabold tracking-tight drop-shadow-lg text-gray-100">
             Mindset je klíč
           </h1>
@@ -103,6 +104,7 @@ export default function MindsetPage() {
             </a>
           </div>
         </section>
+      </div>
       </div>
 
       <Footer />

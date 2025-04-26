@@ -70,7 +70,9 @@ export default function FAQ() {
   return (
     <div className="min-h-screen text-white">
       <Header />
-      <div className="max-w-5xl mx-auto mt-12 mb-12 p-6 sm:p-12 border backdrop-blur-sm shadow-lg rounded-3xl">
+      
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
+        <div className="max-w-5xl mx-auto mt-12 mb-12 p-6 sm:p-10 md:p-12 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl border border-white">
         <h1
           className="text-5xl font-extrabold text-center text-gray-300 mb-10 pb-4 border-b-2 border-gray-300"
           data-aos="fade-up"
@@ -97,6 +99,7 @@ export default function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
+      </div>
       </div>
       <Footer />
       <ScrollToTop />

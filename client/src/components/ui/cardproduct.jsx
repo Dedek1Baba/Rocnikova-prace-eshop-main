@@ -12,13 +12,13 @@ const products = [
     name: "SNITH MIKINA",
     price: "1299 Kč",
     image: bhoodie,
-    link: "#blackhoodie",
+    link: "/product/67dc0284f85664e01df36310",
   },
   {
     name: "SNITH TEPLÁKY",
     price: "1099 Kč",
     image: phoodie,
-    link: "/src/assets/teplaky-prednicast.png",
+    link: "/product/6808ddc3a2bc049329b79225",
   },
   {
     name: "SNITH TÍLKO",
