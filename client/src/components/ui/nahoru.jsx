@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 
-
 export default function Nahoru() {
-
-
   const [isVisible, setIsVisible] = useState(false);
-
-
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -18,15 +13,11 @@ export default function Nahoru() {
       }
     };
 
-
-
     window.addEventListener("scroll", toggleVisibility);
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
-
-
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -34,9 +25,6 @@ export default function Nahoru() {
       behavior: "smooth",
     });
   };
-
-
-
 
   return (
     <button

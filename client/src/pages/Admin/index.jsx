@@ -32,17 +32,9 @@ export default function Admin() {
           </Button>
         </Link>
 
-        <Link to="/oneproductpanel" className="w-full">
-          <Button className="w-full text-lg py-3 flex items-center justify-center bg-green-500 hover:bg-green-400 text-white">
-            <FileText className="mr-2" /> One Product Panel
-          </Button>
-        </Link>
 
-        <Link to="/blogadmin" className="w-full">
-          <Button className="w-full text-lg py-3 flex items-center justify-center bg-green-500 hover:bg-green-400 text-white">
-            <FileText className="mr-2" /> Blog
-          </Button>
-        </Link>
+
+     
 
         <Link to="/" className="w-full">
           <Button className="w-full text-lg py-3 flex items-center justify-center bg-gray-500 hover:bg-gray-400 text-white">
