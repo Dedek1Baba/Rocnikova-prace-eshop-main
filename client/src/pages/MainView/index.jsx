@@ -5,7 +5,6 @@ import { deleteClothing, getClothingById } from "../../models/Clothing";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import ScrollToTop from "@/components/ui/nahoru";
-import StripeLogo from "@/assets/Stripe-Logo.png";
 import { cn } from "@/lib/utils";
 import css from "../Home/home.module.css";
 
@@ -34,13 +33,14 @@ export default function MainView() {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    window.dispatchEvent(new Event("cartItemChanged"));
-
     const cartObject = {
       productId: id,
       quantity: quantity,
       size: selectedSize,
       color: selectedColor,
+      name: clothing.name,
+      price: clothing.price,
+      image: clothing.image,
     };
 
     const existingProductIndex = cart.findIndex(item => 
@@ -50,33 +50,25 @@ export default function MainView() {
     );
 
     if (existingProductIndex !== -1) {
-
       const existingProduct = cart[existingProductIndex];
       const updatedQuantity = existingProduct.quantity + quantity;
 
       if (updatedQuantity > clothing.amount) {
-        return toast("Více položek přidat nemůžete", {
-          action: {
-            label: <X />,
-          },
-        });
+        return toast("Více položek přidat nemůžete");
       }
 
       cart[existingProductIndex].quantity = updatedQuantity;
     } else {
-
       cart.push(cartObject);
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    toast.success("Přidáno do košíku");
-
     window.dispatchEvent(new Event("cartItemChanged"));
-  };
 
+    toast.success("Přidáno do košíku");
+};
 
-  
 
   const load = async () => {
     const data = await getClothingById(id);
@@ -94,7 +86,9 @@ export default function MainView() {
   if (isLoaded === null) {
     return (
       <>
-        <p>Clothing not found</p>
+        <div className="min-h-screen text-white flex justify-center items-center">
+          <p>Produkt nenalezen.</p>
+        </div>
       </>
     );
   }
@@ -102,18 +96,22 @@ export default function MainView() {
   if (!isLoaded) {
     return (
       <>
-        <p>Clothing is loading...</p>
+        <div className="min-h-screen text-white flex justify-center items-center">
+          <p>Načítání produktu...</p>
+        </div>
       </>
     );
   }
 
-  const availableColors = ["Růžová", "Černá", "Šedá"];
+  const availableColors = clothing.colors?.length > 0 ? clothing.colors : ["Černá"];
 
   return (
     <>
       <div className={css}></div>
       <div className="min-h-screen text-white">
+      <div className="text-black">
         <Header />
+      </div>
 
         <div className="absolute mt-14 ml-20">
           <button
@@ -133,6 +131,7 @@ export default function MainView() {
                 filter: "drop-shadow(0 0 10px white)",
               }}
               className="rounded-xl w-full max-w-md"
+              draggable="false"
             />
           </div>
 
@@ -142,7 +141,9 @@ export default function MainView() {
             <div className="text-lg space-y-2">
               <p>
                 <span className="font-semibold">Cena: </span>
-                <span className="line-through text-gray-400 mr-2">1599 Kč</span>
+                <span className="line-through text-gray-400 mr-2">
+                  {Math.floor(clothing.price * 1.5)} Kč
+                </span>
                 <span className="font-bold">{clothing.price} Kč</span>
                 <span className="bg-white text-black text-sm font-bold px-3 py-1 rounded-full ml-2">
                   Sale

@@ -18,6 +18,7 @@ import Checkout from "./Checkout";
 
 import Admin from "./Admin";
 import Success from "./Checkout/success";
+import Error from "./Error/error";
 
 
 import OneP from "./OneP";

@@ -53,37 +53,35 @@ export default function Checkout() {
   useEffect(() => {
     load();
   }, []);
+
   return (
-      <div className="min-h-screen text-white">
-        <Header />
-    
-        <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
-          <div className="w-full max-w-4xl mx-auto p-6 sm:p-8 md:p-10 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl mt-12 mb-12 border border-white">
-            <h1 className="text-4xl font-bold text-center mb-6">Checkout</h1>
-    
-            {clientSecret && stripePromise && (
-              <Elements
-                stripe={stripePromise}
-                options={{
-                  clientSecret: clientSecret,
-                  appearance: { theme: "night" },
-                }}
-              >
-                <CheckoutForm />
-              </Elements>
-            )}
-          </div>
-        </div>
-    
-        <Toaster
-          position="bottom-right"
-          theme="light"
-          richColors
-          className="!bg-black !text-white"
-        />
-        <Footer />
-        <ScrollToTop />
+    <div className="min-h-screen  text-white ">
+      <Header />
+      <div className="max-w-4xl mx-auto p-8 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl  mt-12 mb-12">
+        <h1 className="text-4xl font-bold text-center mb-6">Checkout</h1>
+        {clientSecret && stripePromise && (
+          <Elements
+            stripe={stripePromise}
+            options={{
+              clientSecret: clientSecret,
+              appearance: {
+                theme: "night",
+              },
+            }}
+          >
+            <CheckoutForm />
+          </Elements>
+        )}
       </div>
-    );
-    };
-    
+
+      <Toaster
+        position="bottom-right"
+        theme="light"
+        richColors
+        className="!bg-black !text-white"
+      />
+      <Footer />
+      <ScrollToTop />
+    </div>
+  );
+}

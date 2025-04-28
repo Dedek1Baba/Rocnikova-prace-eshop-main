@@ -3,19 +3,23 @@ import { useState, useEffect } from "react";
 import { getAllClothing } from "../../models/Clothing";
 import MainLink from "./MainLink";
 import { Button } from "@/components/ui/button";
+import Error from "../Error/error"
 import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
 import ScrollToTop from '@/components/ui/nahoru';
 import css from "../Home/home.module.css"; 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useSearchParams } from "react-router-dom";
 
 export default function Main() {
   const [clothing, setClothing] = useState();
   const [isLoaded, setLoaded] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const load = async () => {
-    const data = await getAllClothing();
+    console.log(searchParams.get("name"))
+    const data = await getAllClothing(searchParams.get("name"));
     if (data.status === 404 || data.status === 500) return setLoaded(null);
     if (data.status === 200) {
       setClothing(data.payload);
@@ -30,7 +34,7 @@ export default function Main() {
   if (isLoaded === null) {
     return (
       <>
-        <p>Clothing not found</p>
+        <Error></Error>
       </>
     );
   }
@@ -44,7 +48,7 @@ export default function Main() {
   }
   
 
-  if (isLoaded) {
+
     return (
       <>
       <div className={css}></div>
@@ -71,5 +75,5 @@ export default function Main() {
               <ScrollToTop />
       </>
     );
-  }
+  
 }

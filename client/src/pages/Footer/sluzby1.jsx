@@ -14,8 +14,7 @@ export default function DopravaPlatba() {
     <div className="min-h-screen">
       <Header />
 
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
-        <div className="max-w-5xl mx-auto mt-12 mb-12 p-6 sm:p-10 md:p-12 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl border border-white">
+      <div className="container mx-auto max-w-7xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-6 sm:p-12 mt-12 mb-12 text-white">
         <section data-aos="fade-up ">
           <h1 className="text-5xl font-bold mb-6 text-center text-gray-100">Doprava a Platba</h1>
           <p className="text-lg text-gray-300 mb-4">
@@ -35,7 +34,6 @@ export default function DopravaPlatba() {
             <li>Dobírka (+49 Kč)</li>
           </ul>
         </section>
-      </div>
       </div>
 
       <Footer />

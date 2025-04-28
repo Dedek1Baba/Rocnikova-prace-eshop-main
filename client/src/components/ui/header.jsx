@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "./input";
 import { Button } from "./button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Logo from "../../assets/animace.logo.gif";
 import CartBox from "./cartbox";
@@ -30,8 +30,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const MenuPages = [
-  { id: 1, name: "Domov", link: "/", icon: House },
-  { id: 2, name: "Produkty", link: "/products", icon: Shirt },
+  { id: 1, name: "Home", link: "/", icon: House },
+  { id: 2, name: "Products", link: "/products", icon: Shirt },
   { id: 3, name: "Mindset", link: "/mindset", icon: BookOpen },
 ];
 
@@ -51,8 +51,9 @@ const UserMenuPages = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [totalPriceA, setTotalPriceA] = useState(0);
   const [cart, setCart] = useState(() => {
     const storedCart = localStorage.getItem("cart");
     try {
@@ -62,6 +63,19 @@ export default function Header() {
     }
   });
 
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      navigate(`/products?name=${searchValue}`);
+      window.location.reload();
+    }
+  };
+
   const handleRemoveFromCart = (productId, size, color) => {
     const updatedCart = cart.filter(
       (item) => !(item.productId === productId && item.size === size && item.color === color)
@@ -69,10 +83,8 @@ export default function Header() {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-    window.dispatchEvent(new Event("totalItemsUpdate"));
+    window.dispatchEvent(new Event("cartItemChanged"));
   };
-  
-  
 
   const handleUpdateQuantity = (productId, size, color, newQuantity) => {
     const updatedCart = cart.map((item) =>
@@ -82,15 +94,19 @@ export default function Header() {
     );
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-  
-    window.dispatchEvent(new Event("cartItemChanged"));
 
-    
+    window.dispatchEvent(new Event("cartItemChanged"));
   };
-  
-  
 
   const toggleCart = () => setIsOpen(!isOpen);
+
+  const totalPrice = () => {
+    let totalP = 0;
+    cart.forEach((value) => {
+      totalP += parseInt(value.price) * value.quantity;
+    });
+    setTotalPriceA(totalP);
+  };
 
   useEffect(() => {
     const handleCartUpdate = () => {
@@ -101,14 +117,17 @@ export default function Header() {
         setCart([]);
       }
     };
-  
+
     window.addEventListener("cartItemChanged", handleCartUpdate);
-  
+
     return () => {
       window.removeEventListener("cartItemChanged", handleCartUpdate);
     };
   }, []);
-  
+
+  useEffect(() => {
+    totalPrice();
+  }, [cart]);
 
   return (
     <>
@@ -121,9 +140,17 @@ export default function Header() {
       <div className="backdrop-blur-sm bg-opacity-95 border-b-2 sticky top-0 z-50">
         <div className="container flex justify-between py-5 mx-auto items-center px-4">
           <div className="relative flex items-center gap-2">
-            <Search className="absolute right-3 text-primary md:w-6 w-5" />
+            <Search
+              className="absolute right-3 text-primary md:w-6 w-5"
+              onClick={() => {
+                navigate(`/products?name=${searchValue}`);
+                window.location.reload();
+              }}
+            />
             <Input
               type="text"
+              onChange={handleChange}
+              onKeyPress={handleEnter}
               placeholder="Search.."
               className="px-2 py-1 w-[120px] md:w-[200px] transition-all duration-300 rounded-full border border-gray-600 focus:ring-0 focus:outline-none focus:border-primary cursor-text"
             />
@@ -172,10 +199,9 @@ export default function Header() {
                 <ShoppingCart size={23} />
               </button>
             </div>
-
-          
           </div>
 
+          {/* Cart Button Mobile */}
           <div className="flex items-center gap-3 lg:hidden">
             <button
               onClick={() => {
@@ -191,11 +217,8 @@ export default function Header() {
                 </div>
               )}
             </button>
-
-      
           </div>
 
-          
           {isOpen && (
             <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex justify-end">
               <div className="absolute inset-0" onClick={toggleCart}></div>
@@ -212,20 +235,23 @@ export default function Header() {
                   {Array.isArray(cart) && cart.length > 0 ? (
                     <>
                       {cart.map((item) => (
-                     <CartBox
-                     key={item.productId}
-                     productId={item.productId}
-                     name={item.name}
-                     quantity={item.quantity}
-                     price={item.price}
-                     size={item.size}
-                     color={item.color}
-                     image={item.image}
-                     onRemove={handleRemoveFromCart}
-                     onUpdateQuantity={handleUpdateQuantity}
-                   />
-                   
+                        <CartBox
+                          key={`${item.productId}-${item.size}-${item.color}`}
+                          productId={item.productId}
+                          name={item.name}
+                          quantity={item.quantity}
+                          price={item.price}
+                          size={item.size}
+                          color={item.color}
+                          image={item.image}
+                          onRemove={handleRemoveFromCart}
+                          onUpdateQuantity={handleUpdateQuantity}
+                        />
                       ))}
+                      <div className="text-right mt-4 text-xl font-bold">
+                        Celkem: {totalPriceA} Kč
+                      </div>
+
                       <Link to="/checkout">
                         <button className="bg-white text-black font-bold py-3 mt-4 rounded-xl hover:bg-gray-300 transition-all w-full">
                           Pokračovat k pokladně
@@ -233,23 +259,14 @@ export default function Header() {
                       </Link>
                     </>
                   ) : (
-                    <>
-                      <div className="mt-16 flex flex-col items-center">
-                        <h2 className="text-2xl font-bold mb-6">
-                          Košík je prázdný
-                        </h2>
-                        <button className="w-4/5 py-3 bg-white text-black font-semibold rounded-md mb-4">
-                          <Link to="/products">Ukázat produkty</Link>
-                        </button>
-                        <p className="text-sm">
-                          Máte účet?{" "}
-                          <a href="/login" className="text-white underline">
-                            Přihlaste se
-                          </a>{" "}
-                          pro rychlejší nákup.
-                        </p>
-                      </div>
-                    </>
+                    <div className="mt-16 flex flex-col items-center">
+                      <h2 className="text-2xl font-bold mb-6">
+                        Košík je prázdný
+                      </h2>
+                      <button className="w-4/5 py-3 bg-white text-black font-semibold rounded-md mb-4">
+                        <Link to="/products">Ukázat produkty</Link>
+                      </button>
+                    </div>
                   )}
                 </div>
               </div>

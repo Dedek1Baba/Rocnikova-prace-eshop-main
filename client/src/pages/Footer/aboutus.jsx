@@ -21,7 +21,7 @@ export default function AboutUs() {
     <div className="min-h-screen">
 
       <Header />
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
+
       <div className="container mx-auto max-w-7xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-6 sm:p-12 mt-12 mb-12">
     
       <section className="text-center space-y-6 mb-16" data-aos="zoom-in">
@@ -117,9 +117,9 @@ export default function AboutUs() {
             </div>
         </section>
       </div>
-</div>
+
       <Footer />
       <ScrollToTop />
-    </div>  
+    </div>
   );
 }

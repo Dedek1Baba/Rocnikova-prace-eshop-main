@@ -49,7 +49,7 @@ export default function vyhody() {
             <h3 className="text-lg font-semibold">24/7 Live support</h3>
             <p className="text-gray-400">
               Kontaktujte náš zákaznický tým na e-mail: <br />
-              <span className="font-bold">snith@gmail.com</span>
+              <span className="font-bold">support@snith.cz</span>
             </p>
           </div>
 

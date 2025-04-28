@@ -62,9 +62,8 @@ export default function Sizes() {
   return (
     <>
       <Header />      
+      <div className="container mx-auto max-w-5xl border backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl p-6 sm:p-12 mt-12 mb-12" >
 
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
-        <div className="max-w-5xl mx-auto mt-12 mb-12 p-6 sm:p-10 md:p-12 backdrop-blur-sm shadow-[0_0_20px_5px_rgba(255,255,255,0.6)] rounded-3xl border border-white">
       <div style={containerStyle}>
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-100">Velikosti Produktů</h1>
 
@@ -228,7 +227,6 @@ export default function Sizes() {
               </tbody>
             </table>
           </div>
-        </div>
         </div>
       </div>   </div>
       <Footer />
