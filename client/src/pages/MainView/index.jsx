@@ -43,10 +43,11 @@ export default function MainView() {
       image: clothing.image,
     };
 
-    const existingProductIndex = cart.findIndex(item => 
-      item.productId === cartObject.productId && 
-      item.size === cartObject.size && 
-      item.color === cartObject.color
+    const existingProductIndex = cart.findIndex(
+      (item) =>
+        item.productId === cartObject.productId &&
+        item.size === cartObject.size &&
+        item.color === cartObject.color
     );
 
     if (existingProductIndex !== -1) {
@@ -67,8 +68,7 @@ export default function MainView() {
     window.dispatchEvent(new Event("cartItemChanged"));
 
     toast.success("Přidáno do košíku");
-};
-
+  };
 
   const load = async () => {
     const data = await getClothingById(id);
@@ -103,17 +103,18 @@ export default function MainView() {
     );
   }
 
-  const availableColors = clothing.colors?.length > 0 ? clothing.colors : ["Černá"];
+  const availableColors =
+    clothing.colors?.length > 0 ? clothing.colors : ["Černá"];
 
   return (
     <>
       <div className={css}></div>
       <div className="min-h-screen text-white">
-      <div className="text-black">
-        <Header />
-      </div>
+        <div className="text-black">
+          <Header />
+        </div>
 
-        <div className="absolute mt-14 ml-20">
+        <div className="w-full px-4 pt-8">
           <button
             onClick={() => navigate("/products")}
             className="border text-white font-semibold px-4 py-2 rounded-xl hover:bg-black transition-all"
@@ -136,7 +137,9 @@ export default function MainView() {
           </div>
 
           <div className="flex flex-col justify-center gap-6">
-            <h1 className="text-4xl font-bold uppercase mt-1">{clothing.name}</h1>
+            <h1 className="text-4xl font-bold uppercase mt-1">
+              {clothing.name}
+            </h1>
 
             <div className="text-lg space-y-2">
               <p>
